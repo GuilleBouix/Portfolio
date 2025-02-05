@@ -32,3 +32,6 @@ Este portafolio fue desarrollado con las siguientes tecnologías y herramientas:
   - Vercel
 
 ---
+## 🔑 Licencia
+
+[MIT](LICENSE.txt) - Creado por [**Guille Bouix**](https://guillebouix.vercel.app).
