@@ -226,20 +226,20 @@
         <section class="contact" data-aos="fade-right">
             <h1 data-id="contact-title">Contacto</h1>
 
-            <form action="" class="contact-form" data-aos="fade-in">
+            <form id="contact-form" class="contact-form" data-aos="fade-in">
                 <div class="input-box">
-                    <input type="text" data-id="contact-name" placeholder="Nombre Completo" required>
-                    <input type="email" data-id="contact-email" placeholder="Correo Electrónico" required>
+                    <input type="text" data-id="contact-name" name="from_name" placeholder="Nombre Completo" required>
+                    <input type="email" data-id="contact-email" name="email_id" placeholder="Correo Electrónico" required>
                 </div>
-
+            
                 <div class="input-box">
-                    <input type="tel" data-id="contact-phone" placeholder="Nro. de Teléfono">
-                    <input type="text" data-id="contact-subject" placeholder="Asunto" required>
+                    <input type="tel" data-id="contact-phone" name="contact_phone" placeholder="Nro. de Teléfono">
+                    <input type="text" data-id="contact-subject" name="contact_subject" placeholder="Asunto" required>
                 </div>
-
-                <textarea data-id="contact-message" placeholder="Tu Mensaje"></textarea>
-
-                <button type="submit" data-id="contact-submit">Contáctame</button>
+            
+                <textarea name="message" data-id="contact-message" placeholder="Tu Mensaje"></textarea>
+            
+                <button type="submit" data-id="contact-submit" id="contact-submit">Contáctame</button>
             </form>
         </section>
     </main>
@@ -266,6 +266,24 @@
                 "https://github.com/GuilleBouix"
             ]
         }
+    </script>
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init('uU6YQXHcxUhzh2rKk');
+    
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            emailjs.sendForm('service_i4ydzjs', 'template_z2txfid', this)
+                .then(function() {
+                    alert('Mensaje enviado!');
+                }, function(error) {
+                    console.error('Error...', error);
+                    alert('Error al enviar el mensaje.');
+                });
+        });
     </script>
 </body>
 </html>
