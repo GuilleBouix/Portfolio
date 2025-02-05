@@ -32,5 +32,3 @@ Este portafolio fue desarrollado con las siguientes tecnologías y herramientas:
   - Vercel
 
 ---
-
-## 📂 **Estructura del proyecto**
