@@ -430,8 +430,6 @@ div h4 {
     justify-content: space-between;
     border: 1px solid var(--border-color);
     border-radius: 10px;
-    max-width: 40%;
-    width: calc(33.33% - 1rem); /* Distribuye tres por fila, ajusta si necesitas más o menos */
     min-height: 200px; /* Asegura una altura mínima */
     padding: .75rem;
     box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.1);
