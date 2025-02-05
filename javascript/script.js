@@ -263,3 +263,21 @@ copyEmail.addEventListener("click", (event) => {
         }, 2000);
     });
 });
+
+
+
+
+
+// ----------------------------- Scroll Up Button ----------------------------- //
+document.addEventListener("DOMContentLoaded", function () {
+    const btnUp = document.querySelector(".btn-up");
+
+    btnUp.addEventListener("click", function (event) {
+        event.preventDefault(); // Evita que el enlace recargue la página
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth" // Hace que el desplazamiento sea suave
+        });
+    });
+});

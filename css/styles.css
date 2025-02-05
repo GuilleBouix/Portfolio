@@ -650,6 +650,10 @@ footer .cv-button {
         font-size: .9rem;
     }
 
+    .timeline-area div {
+        height: 160px;
+    }
+
     .skills .skills-area {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Se acomoda mejor en pantallas pequeñas */
     }
@@ -687,7 +691,7 @@ footer .cv-button {
     }
 
     .timeline-area div {
-        height: 150px;
+        height: 160px;
     }
     div h2 {
         font-size: .85rem;
@@ -700,6 +704,10 @@ footer .cv-button {
     }
     div h4 {
         font-size: .8rem;
+    }
+
+    .timeline-area .timeline-item::before {
+        left: -39px; /* Ajusta la posición */
     }
 
     .skills .skills-area h5 {
@@ -728,10 +736,16 @@ footer .cv-button {
     }
 
     .timeline-area div {
-        height: 160px;
+        height: 180px;
     }
 
     .skills .skills-area {
         grid-template-columns: repeat(2, 1fr); /* Sigue en dos columnas */
+    }
+}
+
+@media (max-width: 320px) {
+    .timeline-area div {
+        height: 220px;
     }
 }
