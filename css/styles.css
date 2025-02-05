@@ -8,12 +8,9 @@
     font-family: 'Poppins';
 }
 
-
-
-
-
-
-
+html {
+    overflow-x: hidden;
+}
 
 /* Variables */
 :root {
@@ -220,6 +217,7 @@ header {
     background-color: var(--highlight-color);
     color: var(--background-color);
     padding: 10px 20px;
+    max-width: 300px;
     border-radius: 10px;
     font-size: .9rem;
     top: -30px;
@@ -298,12 +296,12 @@ header img:hover {
 
 .timeline-area div {
     background: var(--light-dark);
-    padding: 10px 25px;
+    padding: 10px 15px;
     font-size: 1rem;
     border: 1px solid var(--border-color);
     line-height: 1.7;
     position: relative;
-    height: 160px;
+    height: auto;
     margin-bottom: 20px;
     box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -342,7 +340,7 @@ div h4 {
 }
 
 div h2 {
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 div h3 {
@@ -354,7 +352,7 @@ div h3 {
 }
 
 div p {
-    font-size: .95rem;
+    font-size: .9rem;
     color: var(--paragraph-color);
     margin: .5rem 0;
     line-height: 1.2;
@@ -535,6 +533,7 @@ div h4 {
 
 .contact-form button {
     padding: .75rem;
+    outline: none;
     border: 1px solid var(--border-color);
     border-radius: 10px;
     background-color: var(--highlight-color);
@@ -563,10 +562,34 @@ footer {
     color: var(--title-color);
 }
 
+footer div {
+    display: flex;
+    align-items: center;
+}
+
 footer p {
     font-size: 1rem;
     color: var(--paragraph-color);
     text-align: center;
+}
+
+footer .btn-up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 30px;
+    height: 30px;    
+    text-decoration: none;
+    font-size: 2rem;
+    color: var(--highlight-color);
+    border-radius: 10px;
+    margin-left: .5rem;
+    transition: all .2s ease;
+}
+.btn-up:hover {
+    transform: scale(1.05);
+    opacity: .9;
 }
 
 footer .cv-button {
@@ -588,6 +611,7 @@ footer .cv-button {
     transform: scale(1.05);
     border: 1px solid var(--highlight-color);
 }
+
 
 
 

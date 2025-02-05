@@ -41,6 +41,17 @@
     <!-- JavaScript -->
     <script src="/javascript/script.js" defer></script>
 </head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K2Y5NRFJR4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K2Y5NRFJR4');
+</script>
+
 <body class="" data-aos="fade-in">
     <nav>
         <img src="/img/logo-light.webp" alt="Logo principal" class="logo">
@@ -246,7 +257,10 @@
 
     <!-- Footer -->
     <footer>
-        <p data-id="footer-text">© 2025 Guillermo Daniel Bouix</p>
+        <div>
+            <p data-id="footer-text">© 2025 Guillermo Daniel Bouix</p>
+            <a href="index.html" class="btn-up" title="Ir hacia arriba"><i class='bx bx-chevron-up'></i></a>
+        </div>
 
         <a href="https://drive.google.com/file/d/1Z4IWdmzK_d-TcfELHQcZcp-OcS3ADapO/view" target="_blank" class="cv-button" data-id="footer-cv">
             Mi Curriculum
@@ -278,10 +292,10 @@
     
             emailjs.sendForm('service_i4ydzjs', 'template_z2txfid', this)
                 .then(function() {
-                    alert('Mensaje enviado!');
+                    alert('¡Mensaje enviado exitosamente!');
                 }, function(error) {
                     console.error('Error...', error);
-                    alert('Error al enviar el mensaje.');
+                    alert('¡Error al enviar el mensaje!');
                 });
         });
     </script>

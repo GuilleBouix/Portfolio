@@ -263,28 +263,3 @@ copyEmail.addEventListener("click", (event) => {
         }, 2000);
     });
 });
-
-
-
-
-// Email JS Form
-const btn = document.getElementById('contact-submit');
-
-document.getElementById('form')
- .addEventListener('submit', function(event) {
-   event.preventDefault();
-
-   btn.value = 'Sending...';
-
-   const serviceID = 'default_service';
-   const templateID = 'template_z2txfid';
-
-   emailjs.sendForm(serviceID, templateID, this)
-    .then(() => {
-      btn.value = 'Send Email';
-      alert('Sent!');
-    }, (err) => {
-      btn.value = 'Send Email';
-      alert(JSON.stringify(err));
-    });
-});
