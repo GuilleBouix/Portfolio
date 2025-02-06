@@ -35,8 +35,6 @@ html {
     --button-color: #FBFBFB;
     --location-color: #0c151d;
     --gradient-skill: linear-gradient(320deg, rgba(12,21,29,1) 0%, rgba(23,46,66,1) 100%);
-
-
 }
 .dark {
     --background-color: #0C151D;
@@ -399,9 +397,9 @@ div h4 {
     font-weight: 500;
     cursor: default;
     white-space: nowrap;
-    width: fit-content; /* Se adapta al texto */
+    width: fit-content;
     min-width: 100px;
-    flex-grow: 1; /* Permite expandirse si hay espacio */
+    flex-grow: 1;
 }
 
 .skills-area h5:hover {
@@ -410,7 +408,7 @@ div h4 {
 }
 
 .skills-area h5 i {
-    font-size: 1.075rem;
+    font-size: 1.1rem;
     margin-right: 5px;
 }
 
