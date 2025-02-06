@@ -49,8 +49,8 @@ const translations = {
         "en": "About Me"
     },
     "about-description": {
-        "es": "Soy un desarrollador freelance enfocado en optimizar procesos y resolver problemas digitales. Actualmente, estoy en la etapa final de la carrera de Analista Programador, donde he consolidado mis conocimientos en programación y en el desarrollo de sistemas informáticos.",
-        "en": "I am a freelance developer focused on optimizing processes and solving digital problems. Currently, I am in the final stage of my Analyst Programmer degree, where I have consolidated my knowledge in programming and system development."
+        "es": "Soy un desarrollador freelance apasionado por la tecnología y la resolución de problemas mediante código. Me especializo en el desarrollo backend con Python y la creación de interfaces web con HTML, CSS y JavaScript. Disfruto creando soluciones que aumentan la eficiencia y funcionalidad de los sistemas. Siempre estoy aprendiendo y explorando nuevas herramientas para seguir enriqueciendo mis conocimientos y creciendo como profesional.",
+        "en": "I am a freelance developer passionate about technology and solving problems through code. I specialize in backend development with Python and creating web interfaces with HTML, CSS, and JavaScript. I enjoy creating solutions that increase the efficiency and functionality of systems. I am always learning and exploring new tools to continue enriching my knowledge and growing as a professional."
     },
     "education-title": {
         "es": "Formación",
