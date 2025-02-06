@@ -381,26 +381,37 @@ div h4 {
 }
 
 .skills .skills-area {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Ajuste dinámico */
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
     justify-content: center;
 }
 
 .skills-area h5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: .95rem;
     background: var(--gradient-skill);
     color: var(--skills-color);
     border-radius: 10px;
-    padding: 10px 7px;
+    padding: 10px 12px;
     font-weight: 500;
-    flex-grow: 1;
-    text-align: center;
     cursor: default;
+    white-space: nowrap;
+    width: fit-content; /* Se adapta al texto */
+    min-width: 100px;
+    flex-grow: 1; /* Permite expandirse si hay espacio */
 }
+
 .skills-area h5:hover {
     transform: scale(1.05);
     box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.skills-area h5 i {
+    font-size: 1.075rem;
+    margin-right: 5px;
 }
 
 
@@ -652,7 +663,7 @@ footer .cv-button {
     }
 
     .skills .skills-area {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Se acomoda mejor en pantallas pequeñas */
+        justify-content: center;
     }
 
     .skills .skills-area h5 {
@@ -707,10 +718,12 @@ footer .cv-button {
         left: -39px; /* Ajusta la posición */
     }
 
-    .skills .skills-area h5 {
-        font-size: .9rem;
-        width: 100%;
-        padding: 10px;
+    .skills .skills-area {
+        gap: 0.4rem;
+    }
+    .skills-area h5 {
+        font-size: 0.85rem; /* Reduce el tamaño del texto */
+        padding: 8px 10px;
     }
 
     .project-item {
@@ -737,12 +750,25 @@ footer .cv-button {
     }
 
     .skills .skills-area {
-        grid-template-columns: repeat(2, 1fr); /* Sigue en dos columnas */
+        gap: 0.4rem;
+    }
+    .skills-area h5 {
+        font-size: 0.85rem; /* Reduce el tamaño del texto */
+        padding: 8px 10px;
     }
 }
 
 @media (max-width: 320px) {
     .timeline-area div {
         height: 220px;
+    }
+
+    .skills .skills-area {
+        flex-direction: column; /* Poner en una sola columna si la pantalla es muy pequeña */
+        align-items: center;
+    }
+    .skills-area h5 {
+        width: 90%; /* Ocupar casi todo el ancho disponible */
+        text-align: center;
     }
 }
