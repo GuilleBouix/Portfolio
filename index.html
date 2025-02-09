@@ -161,17 +161,31 @@
 
         <!-- Projects -->
         <section class="projects" data-aos="fade-up">
-            <h1 data-id="projects-title">Proyectos</h1>
+            <div class="project-select">
+                <h1 data-id="projects-title">Proyectos</h1>
+                
+                <select name="projects" id="projects">
+                    <option style="color: #202020" value="fullstack" selected data-id="">Full Stack</option>
+                    <option style="color: #202020" value="frontend" data-id="">Frontend</option>
+                    <option style="color: #202020" value="backend" data-id="">Backend</option>
+                    <option style="color: #202020" value="others" data-id="select-title">Otros</option>
+                </select>
+            </div>
 
             <div class="project-area">
                 <!-- Project #1 -->
-                <article class="project-item" data-aos="zoom-out">
+                <article id="fullstack" class="project-item" data-aos="zoom-out">
                     <div class="section-a">
+                        <div class="project-image">
+                            <img src="/img/projects/project-1.png" alt="Training+ Project">
+                        </div> 
+
                         <div class="project-title">
                             <h2 data-id="project-1-title">TRAINING PLUS</h2>
                             <strong><i>THESIS</i></strong>
                         </div>
-        
+                      
+
                         <p data-id="project-1-description">
                             Training+ es un sistema web diseñado para la gestión de entrenamientos 
                             personalizados, permitiendo a entrenadores y alumnos interactuar de 
@@ -191,8 +205,12 @@
                 </article>
 
                 <!-- Project #2 -->
-                <article class="project-item" data-aos="zoom-out">
+                <article id="fullstack" class="project-item" data-aos="zoom-out">
                     <div class="section-a">
+                        <div class="project-image">
+                            <img src="/img/projects/project-2.png" alt="QuickSell Project">
+                        </div> 
+
                         <div class="project-title">
                             <h2 data-id="project-2-title">QUICKSELL</h2>
                             <strong><i>POS</i></strong>
@@ -214,12 +232,16 @@
                         </div>
                     </div>
                 </article>
-
+                
                 <!-- Project #3 -->
-                <article class="project-item" data-aos="zoom-out">
+                <article id="others" class="project-item" data-aos="zoom-out">
                     <div class="section-a">
+                        <div class="project-image">
+                            <img src="/img/projects/project-3.png" alt="MindApp Project">
+                        </div> 
+
                         <div class="project-title">
-                            <h2 data-id="project-3-title">MINDDASH</h2>
+                            <h2 data-id="project-3-title">MINDAPP</h2>
                             <strong><i>GAME</i></strong>
                         </div>
         
@@ -237,7 +259,46 @@
                     </div>
 
                 </article> 
+
+                <!-- Project #4 -->
+                <article id="frontend" class="project-item" data-aos="zoom-out">
+                    <div class="section-a">
+                        <div class="project-image">
+                            <img src="/img/projects/project-4.png" alt="Herbal Project">
+                        </div> 
+
+                        <div class="project-title">
+                            <h2 data-id="project-4-title">HERBAL</h2>
+                            <strong><i>PAGE</i></strong>
+                        </div>
+        
+                        <p data-id="project-4-description">
+                            Herbal es un proyecto desarrollado como práctica de diseño web. 
+                            Se trata de una landing page para una empresa ficticia especializada en hierbas e 
+                            infusiones naturales y orgánicas.
+                        </p>
+                    </div>
+
+                    <div class="section-b">
+                        <div class="technologies">
+                            <i class='bx bxl-javascript' title="JavaScript"></i>
+                            <i class='bx bxl-html5' title="HTML"></i>
+                            <i class='bx bxl-tailwind-css' title="Tailwind CSS"></i>
+                        </div>
+                    </div>
+
+                </article> 
+
+                <article id="backend" class="project-item" data-aos="zoom-out">
+                    <div class="section-a">
+        
+                        <p data-id="project-3-description">
+                            No hay proyectos backend por el momento.
+                        </p>
+                    </div>
+                </article> 
             </div>
+        </section>
         
 
         <!-- Contact -->

@@ -420,6 +420,30 @@ div h4 {
     background-color: var(--background-color);
 }
 
+.projects .project-select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+.project-select select {
+    border: 1px solid var(--border-color);
+    outline: none;
+    border-radius: 10px;
+    padding: 3px 10px;
+    background: none;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--paragraph-color);
+    transition: all .2s ease;
+    font-size: .9rem;
+    letter-spacing: 1px;
+}
+.project-select select:hover {
+    border: 1px solid var(--border-color);
+}
+
+
 .projects h1 {
     font-size: 1.3rem;
     margin-bottom: .5rem;
@@ -427,11 +451,29 @@ div h4 {
 }
 
 .projects .project-area {
-    display: flex;
-    gap: .5rem;
-    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea */
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 0.5rem;
+    justify-content: center;
 }
+.project-area:has(.project-item:only-child) {
+    grid-template-columns: 1fr 1fr;
+}
+.project-area .project-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: .75rem;
+    box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.1);
+    background: var(--light-dark);
+}
+.project-area:has(.project-item:only-child) .project-item {
+    max-width: 500px;
+    width: 100%;
+}
+
 
 .project-area .project-item {
     display: flex;
@@ -464,6 +506,20 @@ div h4 {
 .project-title strong {
     color: var(--project-type);
     font-weight: 300;
+}
+
+.project-image {
+    width: 100%;  /* Asegura que el div contenedor tenga el ancho completo */
+    display: flex;
+    justify-content: center; /* Centra la imagen si es más pequeña */
+    margin-bottom: .5rem;
+}
+
+.project-image img {
+    max-width: 100%; /* Evita que la imagen se salga del contenedor */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 5px; /* Opcional: Bordes redondeados para mejor estética */
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
 }
 
 .project-item p {
@@ -669,8 +725,7 @@ footer .cv-button {
     }
     
     .projects .project-area {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: 1fr;
     }
     
     .project-area .project-item {
@@ -722,6 +777,14 @@ footer .cv-button {
     .skills-area h5 {
         font-size: 0.85rem; /* Reduce el tamaño del texto */
         padding: 8px 10px;
+    }
+
+    .projects .project-select {
+        flex-direction: column;
+    }
+    .project-select select {
+        width: 100%;
+        text-align: center;
     }
 
     .project-item {

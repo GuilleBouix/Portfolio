@@ -140,6 +140,10 @@ const translations = {
         "es": "Figma",
         "en": "Figma"
     },
+    "select-title": {
+        "es": "Otros",
+        "en": "Others"
+    },
     "projects-title": {
         "es": "Proyectos",
         "en": "Projects"
@@ -225,6 +229,29 @@ document.getElementById("cambiar-idioma").addEventListener("click", () => {
     document.documentElement.lang = newLang;
     translate(newLang);
 });
+
+
+
+
+
+// ----------------------------- Filter Projects ----------------------------- //
+const select = document.getElementById("projects");
+const projects = document.querySelectorAll(".project-item");
+
+function filterProjects() {
+    const selectedValue = select.value;
+    
+    projects.forEach(project => {
+        if (project.id === selectedValue) {
+            project.style.display = "block";
+        } else {
+            project.style.display = "none";
+        }
+    });
+}
+
+select.addEventListener("change", filterProjects);
+filterProjects();
 
 
 
