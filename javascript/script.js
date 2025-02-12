@@ -32,6 +32,10 @@ checkbox.addEventListener('change', () => {
 
 // ----------------------------- Change Language ----------------------------- //
 const translations = {
+    "language": {
+        "es": "ES/EN",
+        "en": "EN/ES"
+    },
     "title": {
         "es": "Guille Bouix | Portafolio",
         "en": "Guille Bouix | Portfolio"
@@ -108,38 +112,6 @@ const translations = {
         "es": "Habilidades",
         "en": "Skills"
     },
-    "skill-python": {
-        "es": "Python",
-        "en": "Python"
-    },
-    "skill-javascript": {
-        "es": "JavaScript",
-        "en": "JavaScript"
-    },
-    "skill-html": {
-        "es": "HTML",
-        "en": "HTML"
-    },
-    "skill-css": {
-        "es": "CSS",
-        "en": "CSS"
-    },
-    "skill-sql": {
-        "es": "SQL",
-        "en": "SQL"
-    },
-    "skill-git": {
-        "es": "Git",
-        "en": "Git"
-    },
-    "skill-github": {
-        "es": "GitHub",
-        "en": "GitHub"
-    },
-    "skill-figma": {
-        "es": "Figma",
-        "en": "Figma"
-    },
     "select-title": {
         "es": "Otros",
         "en": "Others"
@@ -165,12 +137,12 @@ const translations = {
         "en": "QuickSell is a sales management software system designed to facilitate sales management and optimize business control."
     },
     "project-3-title": {
-        "es": "MINDDASH",
-        "en": "MINDDASH"
+        "es": "MINDAPP",
+        "en": "MINDAPP"
     },
     "project-3-description": {
-        "es": "MindDash es un juego de memorización desarrollado en Python. Su objetivo es evaluar y mejorar la retención de información a corto plazo a través de desafíos dinámicos de memorización.",
-        "en": "MindDash is a memory game developed in Python. Its goal is to evaluate and improve short-term information retention through dynamic memory challenges."
+        "es": "MindApp es un juego de memorización desarrollado en Python. Su objetivo es evaluar y mejorar la retención de información a corto plazo a través de desafíos dinámicos de memorización.",
+        "en": "MindApp is a memory game developed in Python. Its goal is to evaluate and improve short-term information retention through dynamic memory challenges."
     },
     "contact-title": {
         "es": "Contacto",
@@ -259,8 +231,10 @@ filterProjects();
 
 // ----------------------------- Animation On Scroll ----------------------------- //
 AOS.init({
-    duration: 500, // Duración en ms (750ms)
+    duration: 500, // Duración en ms
     once: true, // Solo se anima una vez
+    startEvent: 'DOMContentLoaded', // Se inicia cuando el DOM está cargado
+    offset: 90 // Reduce la distancia necesaria para activar la animación
 });
 
 

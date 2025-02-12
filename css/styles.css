@@ -516,10 +516,11 @@ div h4 {
 }
 
 .project-image img {
-    max-width: 100%; /* Evita que la imagen se salga del contenedor */
-    height: auto; /* Mantiene la proporción */
-    border-radius: 5px; /* Opcional: Bordes redondeados para mejor estética */
-    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
 .project-item p {
