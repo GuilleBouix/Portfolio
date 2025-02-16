@@ -412,6 +412,10 @@ div h4 {
     margin-right: 5px;
 }
 
+.skills-area h5 img {
+    margin-right: 5px;
+}
+
 
 
 /* Projects Section */
@@ -526,6 +530,7 @@ div h4 {
 .project-item p {
     font-size: .9rem;
     margin-top: .5rem;
+    font-weight: 300;
 }
 
 .project-item .technologies {
@@ -533,14 +538,18 @@ div h4 {
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: .5rem;
+    margin-top: 1rem;
     gap: .5rem;
 }
-
-.technologies i {
-    font-size: 1.3rem;
-    color: var(--technologies-icon);
+.technologies span {
+    color: var(--background-color);
+    font-size: .8rem;
+    background: var(--title-color);
+    padding: 2px 7px;
+    border-radius: 5px;
+    opacity: .9;
 }
+
 
 
 

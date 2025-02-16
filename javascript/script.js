@@ -144,6 +144,22 @@ const translations = {
         "es": "MindApp es un juego de memorización desarrollado en Python. Su objetivo es evaluar y mejorar la retención de información a corto plazo a través de desafíos dinámicos de memorización.",
         "en": "MindApp is a memory game developed in Python. Its goal is to evaluate and improve short-term information retention through dynamic memory challenges."
     },
+    "project-4-title": {
+        "es": "HERBAL",
+        "en": "HERBAL"
+    },
+    "project-4-description": {
+        "es": "Herbal es un proyecto desarrollado como práctica de diseño web. Se trata de una landing page para una empresa ficticia especializada en hierbas e infusiones naturales y orgánicas.",
+        "en": "Herbal is a project developed as a web design practice. It is a landing page for a fictitious company specialized in natural and organic herbs and infusions."
+    },
+    "project-5-title": {
+        "es": "LAST DYING WEBSITE",
+        "en": "LAST DYING WEBSITE"
+    },
+    "project-5-description": {
+        "es": "Sitio web oficial de Last Dying, un proyecto de música metal instrumental. La página cuenta con secciones como la discografía completa con enlaces para escuchar los lanzamientos, la biografía y un apartado de contacto.",
+        "en": "Official website of Last Dying, an instrumental metal music project. The site features sections such as the full discography with links to listen to the releases, biography and a contact section."
+    },
     "contact-title": {
         "es": "Contacto",
         "en": "Contact"
