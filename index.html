@@ -86,10 +86,10 @@
             </div>
 
         </section>
-        <img src="/img/profile.webp" alt="Foto de Guillermo Bouix">
+        <img data-tilt data-tilt-scale="1.05" src="/img/profile.webp" alt="Foto de Guillermo Bouix">
     </header>
 
-    <main>  
+    <main>   
         <!-- About -->
         <section class="about" data-aos="fade-up">
             <h1 data-id="about-title">Sobre Mí</h1>
@@ -146,17 +146,17 @@
             <h1 data-id="skills-title">Habilidades</h1>
 
             <article class="skills-area">
-                <h5 data-id="skill-python" data-aos="flip-right"><i class='bx bxl-python'></i>Python</h5>
-                <h5 data-id="skill-python" data-aos="flip-right"><i class='bx bxl-flask'></i>Flask</h5>
-                <h5 data-id="skill-javascript" data-aos="flip-right"><i class='bx bxl-javascript'></i>JavaScript</h5>
-                <h5 data-id="skill-astro" data-aos="flip-right"><img src="/img/icons/astro.png" alt=""> Astro</h5>
-                <h5 data-id="skill-html" data-aos="flip-right"><i class='bx bxl-html5'></i>HTML</h5>
-                <h5 data-id="skill-css" data-aos="flip-right"><i class='bx bxl-tailwind-css'></i>Tailwind CSS</h5>
-                <h5 data-id="skill-css" data-aos="flip-right"><i class='bx bxl-css3'></i>CSS</h5>
-                <h5 data-id="skill-sql" data-aos="flip-right"><i class='bx bxs-data'></i>SQL</h5>
-                <h5 data-id="skill-git" data-aos="flip-right"><i class='bx bxl-git'></i>Git</h5>
-                <h5 data-id="skill-github" data-aos="flip-right"><i class='bx bxl-github'></i>GitHub</h5>
-                <h5 data-id="skill-figma" data-aos="flip-right"><i class='bx bxl-figma'></i>Figma</h5>
+                <h5 data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.8" data-id="skill-python" data-aos="flip-right"><i class='bx bxl-python'></i>Python</h5>
+                <h5 data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.8" data-id="skill-python" data-aos="flip-right"><i class='bx bxl-flask'></i>Flask</h5>
+                <h5 data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.8" data-id="skill-javascript" data-aos="flip-right"><i class='bx bxl-javascript'></i>JavaScript</h5>
+                <h5 data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.8" data-id="skill-astro" data-aos="flip-right"><img src="/img/icons/astro.png" alt=""> Astro</h5>
+                <h5 data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.8" data-id="skill-html" data-aos="flip-right"><i class='bx bxl-html5'></i>HTML</h5>
+                <h5 data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.8" data-id="skill-css" data-aos="flip-right"><i class='bx bxl-tailwind-css'></i>Tailwind CSS</h5>
+                <h5 data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.8" data-id="skill-css" data-aos="flip-right"><i class='bx bxl-css3'></i>CSS</h5>
+                <h5 data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.8" data-id="skill-sql" data-aos="flip-right"><i class='bx bxs-data'></i>SQL</h5>
+                <h5 data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.8" data-id="skill-git" data-aos="flip-right"><i class='bx bxl-git'></i>Git</h5>
+                <h5 data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.8" data-id="skill-github" data-aos="flip-right"><i class='bx bxl-github'></i>GitHub</h5>
+                <h5 data-tilt data-tilt-max="20" data-tilt-glare data-tilt-max-glare="0.8" data-id="skill-figma" data-aos="flip-right"><i class='bx bxl-figma'></i>Figma</h5>
             </article>
         </section>
 
@@ -175,11 +175,11 @@
 
             <div class="project-area">
                 <!-- Project #1 -->
-                <article id="fullstack" class="project-item" data-aos="zoom-out">
+                <article id="fullstack" class="project-item" data-aos="zoom-out" data-project="project-1" onclick="openProject('project-1-visualization.png')">
                     <div class="section-a">
                         <div class="project-image">
                             <img src="/img/projects/project-1.png" alt="Training+ Project">
-                        </div> 
+                        </div>
 
                         <div class="project-title">
                             <h2 data-id="project-1-title">TRAINING PLUS</h2>
@@ -206,7 +206,7 @@
                 </article>
 
                 <!-- Project #2 -->
-                <article id="fullstack" class="project-item" data-aos="zoom-out">
+                <article id="fullstack" class="project-item" data-aos="zoom-out" data-project="project-2">
                     <div class="section-a">
                         <div class="project-image">
                             <img src="/img/projects/project-2.png" alt="QuickSell Project">
@@ -218,8 +218,7 @@
                         </div>
         
                         <p data-id="project-2-description">
-                            QuickSell es un sistema de software de gestión de ventas diseñado 
-                            para facilitar la gestión de ventas y optimizar el control comercial.
+                            QuickSell es un sistema de software diseñado para optimizar la gestión de ventas y mejorar el control comercial.
                         </p>
                     </div>
 
@@ -235,7 +234,7 @@
                 </article>
                 
                 <!-- Project #3 -->
-                <article id="others" class="project-item" data-aos="zoom-out">
+                <article id="others" class="project-item" data-aos="zoom-out" data-project="project-3" onclick="openProject('project-3-visualization.png')">
                     <div class="section-a">
                         <div class="project-image">
                             <img src="/img/projects/project-3.png" alt="MindApp Project">
@@ -263,7 +262,7 @@
                 </article> 
 
                 <!-- Project #4 -->
-                <article id="frontend" class="project-item" data-aos="zoom-out">
+                <article id="frontend" class="project-item" data-aos="zoom-out" data-project="project-4" onclick="openProject('project-4-visualization.png')">
                     <div class="section-a">
                         <div class="project-image">
                             <img src="/img/projects/project-4.png" alt="Herbal Project">
@@ -292,7 +291,7 @@
                 </article> 
 
                 <!-- Project #5 -->
-                <article id="frontend" class="project-item" data-aos="zoom-out">
+                <article id="frontend" class="project-item" data-aos="zoom-out" data-project="project-5" onclick="openProject('project-5-visualization.png')">
                     <div class="section-a">
                         <div class="project-image">
                             <img src="/img/projects/project-5.png" alt="Herbal Project">
@@ -319,7 +318,7 @@
                 </article> 
 
                 <!-- Project #6 -->
-                <article id="backend" class="project-item" data-aos="zoom-out">
+                <article id="backend" class="project-item" data-aos="zoom-out" data-project="project-6">
                     <div class="section-a">
         
                         <p data-id="project-3-description">
@@ -396,5 +395,8 @@
                 });
         });
     </script>
+
+    <!-- Vanilla Tilt -->
+    <script type="text/javascript" src="/javascript/vanilla-tilt.js"></script>
 </body>
 </html>

@@ -298,3 +298,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+
+
+
+function openProject(imageName) {
+    window.location.href = `projects/projects.html?image=${imageName}`;
+}
