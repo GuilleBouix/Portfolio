@@ -45,16 +45,16 @@ const translations = {
         "en": "Guillermo Daniel Bouix"
     },
     "hero-intro": {
-        "es": "Desarrollador web especializado en crear soluciones digitales rápidas, eficientes y seguras.",
-        "en": "Web developer specializing in creating fast, efficient, and secure digital solutions."
+        "es": "Desarrollador de Software especializado en crear soluciones digitales rápidas, eficientes y seguras.",
+        "en": "Software developer specializing in creating fast, efficient, and secure digital solutions."
     },
     "about-title": {
         "es": "Sobre Mí",
         "en": "About Me"
     },
     "about-description": {
-        "es": "Soy un desarrollador freelance apasionado por la tecnología y la resolución de problemas mediante código. Me especializo en el desarrollo backend con Python y la creación de interfaces web con HTML, CSS y JavaScript. Disfruto creando soluciones que aumentan la eficiencia y funcionalidad de los sistemas. Siempre estoy aprendiendo y explorando nuevas herramientas para seguir enriqueciendo mis conocimientos y creciendo como profesional.",
-        "en": "I am a freelance developer passionate about technology and solving problems through code. I specialize in backend development with Python and creating web interfaces with HTML, CSS, and JavaScript. I enjoy creating solutions that increase the efficiency and functionality of systems. I am always learning and exploring new tools to continue enriching my knowledge and growing as a professional."
+        "es": "Soy un desarrollador de software con formación universitaria, inicié mi viaje en el mundo del desarrollo en 2022. Actualmente completando mi tesis final de Analista Programador, y certificado en Data Science e IA con Python. Mi enfoque se centra en crear soluciones tecnológicas directas y funcionales, con interfaces amigables que resuelvan problemas reales. Me apasiona materializar ideas a través del código, transformando conceptos abstractos en aplicaciones tangibles. Mi objetivo es consolidarme profesionalmente en la industria, desarrollando productos que impacten positivamente en los usuarios.",
+        "en": "I am a software developer with university education who began my journey in the development world in 2022. Currently completing my final thesis in Programming Analysis, and certified in Data Science and AI with Python. My approach focuses on creating direct and functional technological solutions, with user-friendly interfaces that solve real problems. I am passionate about bringing ideas to life through code, transforming abstract concepts into tangible applications. My goal is to establish myself professionally in the industry, developing products that positively impact users."
     },
     "education-title": {
         "es": "Formación",
@@ -250,7 +250,7 @@ AOS.init({
     duration: 500, // Duración en ms
     once: true, // Solo se anima una vez
     startEvent: 'DOMContentLoaded', // Se inicia cuando el DOM está cargado
-    offset: 90 // Reduce la distancia necesaria para activar la animación
+    offset: 0 // Reduce la distancia necesaria para activar la animación
 });
 
 
