@@ -53,8 +53,8 @@ const translations = {
         "en": "About Me"
     },
     "about-description": {
-        "es": "Soy un desarrollador de software con formación universitaria, inicié mi viaje en el mundo del desarrollo en 2022. Actualmente completando mi tesis final de Analista Programador, y certificado en Data Science e IA con Python. Mi enfoque se centra en crear soluciones tecnológicas directas y funcionales, con interfaces amigables que resuelvan problemas reales. Me apasiona materializar ideas a través del código, transformando conceptos abstractos en aplicaciones tangibles. Mi objetivo es consolidarme profesionalmente en la industria, desarrollando productos que impacten positivamente en los usuarios.",
-        "en": "I am a software developer with university education who began my journey in the development world in 2022. Currently completing my final thesis in Programming Analysis, and certified in Data Science and AI with Python. My approach focuses on creating direct and functional technological solutions, with user-friendly interfaces that solve real problems. I am passionate about bringing ideas to life through code, transforming abstract concepts into tangible applications. My goal is to establish myself professionally in the industry, developing products that positively impact users."
+        "es": "Soy desarrollador de software con formación universitaria, inicié mi camino en el desarrollo en 2022 y me gradué como Analista Programador en 2025. También estoy certificado en Data Science e Inteligencia Artificial con Python.<br><br>Mi enfoque profesional se centra en crear soluciones tecnológicas directas y funcionales, priorizando interfaces amigables que resuelvan problemas reales y mejoren la experiencia del usuario. Me apasiona transformar ideas abstractas en aplicaciones concretas que las personas puedan usar y aprovechar.<br><br>Actualmente busco consolidar mi carrera en la industria tecnológica, combinando mis habilidades técnicas con una comprensión profunda de las necesidades del mercado para desarrollar productos que generen un impacto positivo y marquen una diferencia real.",
+        "en": "I am a software developer with a university background. I began my journey in development in 2022 and graduated as a Systems Analyst in 2025. I am also certified in Data Science and Artificial Intelligence with Python.<br><br>My professional focus is on creating straightforward, functional technological solutions, prioritizing user-friendly interfaces that solve real problems and enhance the user experience. I am passionate about turning abstract ideas into concrete applications that people can use and benefit from.<br><br>I am currently seeking to solidify my career in the tech industry, combining my technical skills with a deep understanding of market needs to develop products that make a positive impact and deliver real value."
     },
     "education-title": {
         "es": "Formación",
@@ -82,15 +82,15 @@ const translations = {
     },
     "education-course-2-institute": {
         "es": "Instituto Privado de Estudios Superiores IPET 1308",
-        "en": "Instituto Privado de Estudios Superiores IPET 1308"
+        "en": "Private Institute of Higher Education IPET 1308"
     },
     "education-course-2-description": {
         "es": "Carrera de nivel superior orientada al desarrollo de software, bases de datos y análisis de sistemas informáticos.",
         "en": "Higher education degree oriented towards software development, databases, and analysis of information systems."
     },
     "education-course-2-duration": {
-        "es": "2023 - 2024",
-        "en": "2023 - 2024"
+        "es": "2023 - 2025",
+        "en": "2023 - 2025"
     },
     "education-course-3-title": {
         "es": "PYTHON PARA CIENCIA DE DATOS E IA",
@@ -105,8 +105,8 @@ const translations = {
         "en": "Course focused on the use of Python for data analysis, machine learning, and artificial intelligence."
     },
     "education-course-3-duration": {
-        "es": "2025 - Actualidad",
-        "en": "2025 - Present"
+        "es": "2025 - 2025",
+        "en": "2025 - 2025"
     },
     "skills-title": {
         "es": "Habilidades",
@@ -202,7 +202,10 @@ const translate = (lang) => {
     Object.keys(translations).forEach(id => {
         const element = document.querySelector(`[data-id='${id}']`);
         if (element) {
-            element.innerText = translations[id][lang];
+            // Reemplazar \n con <br> en el texto de traducción si es necesario
+            let translatedText = translations[id][lang];
+            // Usar innerHTML en lugar de innerText para mantener los <br>
+            element.innerHTML = translatedText;
         }
         const inputElement = document.querySelector(`[data-id='${id}'][placeholder]`);
         if (inputElement) {
