@@ -53,8 +53,8 @@ const translations = {
         "en": "About Me"
     },
     "about-description": {
-        "es": "Soy desarrollador de software con formación universitaria, inicié mi camino en el desarrollo en 2022 y me gradué como Analista Programador en 2025. También estoy certificado en Data Science e Inteligencia Artificial con Python.<br><br>Mi enfoque profesional se centra en crear soluciones tecnológicas directas y funcionales, priorizando interfaces amigables que resuelvan problemas reales y mejoren la experiencia del usuario. Me apasiona transformar ideas abstractas en aplicaciones concretas que las personas puedan usar y aprovechar.<br><br>Actualmente busco consolidar mi carrera en la industria tecnológica, combinando mis habilidades técnicas con una comprensión profunda de las necesidades del mercado para desarrollar productos que generen un impacto positivo y marquen una diferencia real.",
-        "en": "I am a software developer with a university background. I began my journey in development in 2022 and graduated as a Systems Analyst in 2025. I am also certified in Data Science and Artificial Intelligence with Python.<br><br>My professional focus is on creating straightforward, functional technological solutions, prioritizing user-friendly interfaces that solve real problems and enhance the user experience. I am passionate about turning abstract ideas into concrete applications that people can use and benefit from.<br><br>I am currently seeking to solidify my career in the tech industry, combining my technical skills with a deep understanding of market needs to develop products that make a positive impact and deliver real value."
+        "es": "Soy desarrollador de software con formación universitaria. Inicié mi camino en el desarrollo en 2022 y me gradué como Analista Programador en 2025. También cuento con una certificación en Análisis de Datos obtenida a través del curso de Python para Ciencia de Datos e IA.<br><br>Mi enfoque profesional se centra en crear soluciones tecnológicas directas y funcionales, priorizando interfaces amigables que resuelvan problemas reales y mejoren la experiencia del usuario. Me apasiona transformar ideas abstractas en aplicaciones concretas que las personas puedan usar y aprovechar.<br><br>Actualmente busco consolidar mi carrera en la industria tecnológica, combinando mis habilidades técnicas con una comprensión profunda de las necesidades del mercado para desarrollar productos que generen un impacto positivo y marquen una diferencia real.",
+        "en": "I am a software developer with a university education. I started my development journey in 2022 and graduated as a Programmer Analyst in 2025. I also hold a certification in Data Analysis from the Python for Data Science and AI course.<br><br>My professional focus is on creating straightforward, functional technological solutions, prioritizing user-friendly interfaces that solve real problems and enhance the user experience. I am passionate about turning abstract ideas into concrete applications that people can use and benefit from.<br><br>I am currently seeking to solidify my career in the tech industry, combining my technical skills with a deep understanding of market needs to develop products that make a positive impact and deliver real value."
     },
     "education-title": {
         "es": "Formación",
@@ -76,6 +76,10 @@ const translations = {
         "es": "2021 - 2021",
         "en": "2021 - 2021"
     },
+    "education-course-1-certification": {
+        "es": "<i class='bx bx-certification'></i> Certificación",
+        "en": "<i class='bx bx-certification'></i> Certification"
+    },
     "education-course-2-title": {
         "es": "ANALISTA PROGRAMADOR",
         "en": "PROGRAMMER ANALYST"
@@ -92,6 +96,10 @@ const translations = {
         "es": "2023 - 2025",
         "en": "2023 - 2025"
     },
+    "education-course-2-certification": {
+        "es": "<i class='bx bxs-graduation'></i> Titulación",
+        "en": "<i class='bx bxs-graduation'></i> Degree"
+    },
     "education-course-3-title": {
         "es": "PYTHON PARA CIENCIA DE DATOS E IA",
         "en": "PYTHON FOR DATA SCIENCE & AI"
@@ -107,6 +115,10 @@ const translations = {
     "education-course-3-duration": {
         "es": "2025 - 2025",
         "en": "2025 - 2025"
+    },
+    "education-course-3-certification": {
+        "es": "<i class='bx bx-certification'></i> Certificación",
+        "en": "<i class='bx bx-certification'></i> Certification"
     },
     "skills-title": {
         "es": "Habilidades",
