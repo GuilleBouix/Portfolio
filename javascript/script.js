@@ -97,8 +97,8 @@ const translations = {
         "en": "2023 - 2025"
     },
     "education-course-2-certification": {
-        "es": "<i class='bx bxs-graduation'></i> Titulación",
-        "en": "<i class='bx bxs-graduation'></i> Degree"
+        "es": "<i class='bx bxs-graduation'></i> Certificado de Egreso",
+        "en": "<i class='bx bxs-graduation'></i> Graduation Certificate"
     },
     "education-course-3-title": {
         "es": "PYTHON PARA CIENCIA DE DATOS E IA",
