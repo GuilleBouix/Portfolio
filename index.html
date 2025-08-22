@@ -59,7 +59,7 @@
         <img src="/img/logo-light.webp" alt="Logo principal" class="logo">
         <button id="cambiar-idioma" title="Cambiar Idioma" data-id="language">ES/EN</button>
         <div class="switch" title="Cambiar Tema">
-            <input type="checkbox" class="checkbox" id="checkbox">
+            <input type="checkbox" class="checkbox" id="checkbox" aria-label="Cambiar entre modo claro y oscuro">
             <label for="checkbox" class="checkbox-label">
                 <i class='bx bxs-sun'></i>
                 <i class='bx bxs-moon'></i>
@@ -184,6 +184,7 @@
             <div class="project-select">
                 <h1 data-id="projects-title">Proyectos</h1>
                 
+                <label for="projects" class="sr-only">Filtrar proyectos por categoría</label>
                 <select name="projects" id="projects">
                     <option style="color: #202020" value="fullstack" selected>Full-Stack</option>
                     <option style="color: #202020" value="frontend">Frontend</option>
