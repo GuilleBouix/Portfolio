@@ -1,0 +1,189 @@
+<style>
+  .menu-mobile {
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+
+  .menu-mobile.hidden {
+    opacity: 0;
+    transform: translateY(-12px);
+    pointer-events: none;
+  }
+
+  .menu-mobile.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .menu-item {
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  }
+
+  .menu-item.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<nav class="relative font-inter">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-40">
+    <div class="relative flex h-16 items-center justify-between border-b border-gray-500/30">
+
+      <!-- Logo -->
+      <div class="absolute inset-y-0 left-0 flex items-center sm:static">
+        <img src="/img/logo.svg" alt="BouixDev Logo" class="h-8 w-auto" />
+      </div>
+
+      <!-- Enlaces rápidos -->
+      <div class="flex flex-1 items-center justify-end">
+
+        <!-- Enlaces Desktop -->
+        <div class="hidden sm:block">
+          <div class="flex space-x-4">
+            <a rel="noopener noreferrer" aria-label="Sección sobre Guillermo Bouix" data-aos="fade-in" data-aos-duration="400" href="/" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">
+                Sobre Mí
+            </a>
+
+            <a rel="noopener noreferrer" aria-label="Sección de proyectos" data-aos="fade-in" data-aos-duration="400" data-aos-delay="50" href="/#projects" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">
+                Proyectos
+            </a>
+
+            <a rel="noopener noreferrer" aria-label="Sección de formación académica" data-aos="fade-in" data-aos-duration="400" data-aos-delay="100" href="/#education" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">
+                Formación
+            </a>
+
+            <a rel="noopener noreferrer" aria-label="Sección de habilidades y conocimientos" data-aos="fade-in" data-aos-duration="400" data-aos-delay="150" href="/#skills" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">
+                Habilidades
+            </a>
+
+            <a rel="noopener noreferrer" aria-label="Sección de contacto" data-aos="fade-in" data-aos-duration="400" data-aos-delay="200" href="/#contact" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">
+                Contacto
+            </a>
+          </div>
+        </div>
+
+        <!-- Botón hamburguesa -->
+        <div data-aos="fade-in" data-aos-duration="400" data-aos-delay="100" class="flex sm:hidden inset-y-0 right-0 items-center">
+          <button 
+            id="menu-toggle"
+            type="button" 
+            class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-300 hover:text-white cursor-pointer"
+            aria-label="Toggle menu"
+          >
+            <!-- Ícono hamburguesa -->
+            <svg 
+              id="icon-burger"
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 24 24" 
+              fill="currentColor" 
+              class="size-8 transition-all duration-200 ease-out opacity-100 rotate-0"
+            >
+              <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+            </svg>
+
+            <!-- Ícono X -->
+            <svg 
+              id="icon-close"
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 24 24" 
+              fill="currentColor" 
+              class="size-8 absolute transition-all duration-200 ease-out opacity-0 rotate-90"
+            >
+              <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div 
+    id="mobile-menu"
+    class="sm:hidden absolute left-4 right-4 top-full mt-2 bg-gray-900/95 border border-gray-500/30 backdrop-blur-md z-50 rounded-lg overflow-hidden menu-mobile hidden"
+  >
+    <div class="space-y-1 px-2 py-3">
+      <a rel="noopener noreferrer" aria-label="Sección sobre Guillermo Bouix" href="/#about" class="menu-item block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition-colors">Sobre Mí</a>
+      
+      <a rel="noopener noreferrer" aria-label="Sección de proyectos" href="/#projects" class="menu-item block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition-colors">Proyectos</a>
+      
+      <a rel="noopener noreferrer" aria-label="Sección de formación académica" href="/#education" class="menu-item block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition-colors">Formación</a>
+      
+      <a rel="noopener noreferrer" aria-label="Sección de habilidades y conocimientos" href="/#skills" class="menu-item block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition-colors">Habilidades</a>
+      
+      <a rel="noopener noreferrer" aria-label="Sección de contacto" href="/#contact" class="menu-item block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition-colors">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconBurger = document.getElementById('icon-burger');
+  const iconClose = document.getElementById('icon-close');
+  const menuItems = document.querySelectorAll('.menu-item');
+  let isOpen = false;
+
+  menuToggle.addEventListener('click', () => {
+    isOpen = !isOpen;
+    
+    if (isOpen) {
+      // Mostrar menú
+      mobileMenu.classList.remove('hidden');
+      setTimeout(() => {
+        mobileMenu.classList.add('show');
+      }, 10);
+      
+      // Animar items del menú con delay escalonado
+      menuItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add('show');
+        }, 50 + (index * 50));
+      });
+      
+      // Cambiar íconos con Tailwind
+      iconBurger.classList.remove('opacity-100', 'rotate-0');
+      iconBurger.classList.add('opacity-0', 'rotate-90');
+      iconClose.classList.remove('opacity-0', 'rotate-90');
+      iconClose.classList.add('opacity-100', 'rotate-0');
+    } else {
+      // Ocultar menú
+      menuItems.forEach(item => {
+        item.classList.remove('show');
+      });
+      
+      mobileMenu.classList.remove('show');
+      setTimeout(() => {
+        mobileMenu.classList.add('hidden');
+      }, 300);
+      
+      // Cambiar íconos con Tailwind
+      iconClose.classList.remove('opacity-100', 'rotate-0');
+      iconClose.classList.add('opacity-0', 'rotate-90');
+      iconBurger.classList.remove('opacity-0', 'rotate-90');
+      iconBurger.classList.add('opacity-100', 'rotate-0');
+    }
+  });
+
+  // Cerrar al hacer click fuera
+  document.addEventListener('click', (e) => {
+    if (isOpen && !menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+      isOpen = false;
+      
+      menuItems.forEach(item => {
+        item.classList.remove('show');
+      });
+      
+      mobileMenu.classList.remove('show');
+      setTimeout(() => {
+        mobileMenu.classList.add('hidden');
+      }, 300);
+      
+      iconClose.classList.remove('opacity-100', 'rotate-0');
+      iconClose.classList.add('opacity-0', 'rotate-90');
+      iconBurger.classList.remove('opacity-0', 'rotate-90');
+      iconBurger.classList.add('opacity-100', 'rotate-0');
+    }
+  });
+</script>

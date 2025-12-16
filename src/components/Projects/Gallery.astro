@@ -1,0 +1,87 @@
+---
+const { images } = Astro.props;
+---
+
+<div class="gallery-container max-w-4xl mx-auto">
+  <!-- Imagen principal -->
+  <div class="relative overflow-hidden shadow-lg aspect-video rounded-2xl border border-gray-500/20">
+    <img
+      loading="lazy"
+      id="gallery-image" 
+      src={images[0].src} 
+      alt={images[0].alt}
+      class="w-full h-full object-cover"
+    />
+    
+    <!-- Botón anterior -->
+    <button 
+      id="prev-btn"
+      class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all disabled:opacity-30 disabled:cursor-not-allowed md:left-4 cursor-pointer"
+      aria-label="Imagen anterior"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="#87ceeb" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+    
+    <!-- Botón siguiente -->
+    <button 
+      id="next-btn"
+      class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all disabled:opacity-30 disabled:cursor-not-allowed md:right-4 cursor-pointer"
+      aria-label="Imagen siguiente"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="#87ceeb" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Contador de imágenes -->
+  <div class="text-center mt-4 text-gray-500">
+    <span id="current-index">1</span> / <span id="total-images">{images.length}</span>
+  </div>
+</div>
+
+<script define:vars={{ images }}>
+  let currentIndex = 0;
+  
+  const image = document.getElementById('gallery-image');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const currentIndexSpan = document.getElementById('current-index');
+  
+  function updateGallery() {
+    image.src = images[currentIndex].src;
+    image.alt = images[currentIndex].alt;
+    currentIndexSpan.textContent = currentIndex + 1;
+    
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex === images.length - 1;
+  }
+  
+  prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateGallery();
+    }
+  });
+  
+  nextBtn.addEventListener('click', () => {
+    if (currentIndex < images.length - 1) {
+      currentIndex++;
+      updateGallery();
+    }
+  });
+  
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft' && currentIndex > 0) {
+      currentIndex--;
+      updateGallery();
+    } else if (e.key === 'ArrowRight' && currentIndex < images.length - 1) {
+      currentIndex++;
+      updateGallery();
+    }
+  });
+  
+  updateGallery();
+</script>

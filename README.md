@@ -1,37 +1,46 @@
-# Guille Bouix | Portfolio
+# Astro Starter Kit: Basics
 
-<img src="https://i.postimg.cc/NF7mtK9s/GUILLE-BOUIX-LOGO.webp" alt="Descripción de la imagen" style="width:100%; max-width:900px; display:block; margin:auto;">
+```sh
+pnpm create astro@latest -- --template basics
+```
 
-## ¡Bienvenido/a a mi Portafolio! 🚀  
-Este es el espacio donde muestro mis proyectos, habilidades y experiencia en desarrollo.  
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-🎨 **Basado en el diseño de:** [Bartosz Jarocki](https://github.com/BartoszJarocki)
+## 🚀 Project Structure
 
-## 🔗 **Vista previa en vivo**
-Puedes ver mi portafolio en línea accediendo a 
-➡️ [https://guillebouix.vercel.app](https://guillebouix.vercel.app)  
+Inside of your Astro project, you'll see the following folders and files:
 
----
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src
+│   ├── assets
+│   │   └── astro.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   └── pages
+│       └── index.astro
+└── package.json
+```
 
-## 📷 **Screenshots**
-| 💻 Escritorio | 📱 Móvil |
-|--------------|---------|
-| ![Versión escritorio](https://i.postimg.cc/bNmLS5rz/web.jpg) | ![Versión móvil](https://i.postimg.cc/vmVvjHzB/mobile.jpg) |
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
----
+## 🧞 Commands
 
-## 🛠️ **Tecnologías utilizadas**
-Este portafolio fue desarrollado con las siguientes tecnologías y herramientas:
+All commands are run from the root of the project, from a terminal:
 
-- **Frontend:**
-  - HTML5
-  - CSS3
-  - JavaScript (Vanilla)
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `pnpm install`             | Installs dependencies                            |
+| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
+| `pnpm build`           | Build your production site to `./dist/`          |
+| `pnpm preview`         | Preview your build locally, before deploying     |
+| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
-- **Hosting & Deployment:**
-  - Vercel
+## 👀 Want to learn more?
 
----
-## 🔑 Licencia
-
-[MIT](LICENSE.txt) - Creado por [**Guille Bouix**](https://guillebouix.vercel.app).
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

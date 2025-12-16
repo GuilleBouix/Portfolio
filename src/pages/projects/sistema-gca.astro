@@ -1,0 +1,107 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import ProjectPage from "../../components/Projects/ProjectPage.astro";
+import Gallery from "../../components/Projects/Gallery.astro";
+import FeaturesCard from "../../components/Projects/FeaturesCard.astro";
+
+const myImages = [
+  { src: "/img/projects/sistemagca/1.webp", alt: "Primera imagen" },
+  { src: "/img/projects/sistemagca/2.webp", alt: "Segunda imagen" },
+  { src: "/img/projects/sistemagca/3.webp", alt: "Tercera imagen" },
+  { src: "/img/projects/sistemagca/4.webp", alt: "Cuarta imagen" },
+  { src: "/img/projects/sistemagca/5.webp", alt: "Quinta imagen" },
+  { src: "/img/projects/sistemagca/6.webp", alt: "Sexta imagen" },
+  { src: "/img/projects/sistemagca/7.webp", alt: "Séptima imagen" },
+  { src: "/img/projects/sistemagca/8.webp", alt: "Octava imagen" }
+]
+---
+
+<Layout>
+  <header>
+    <Navbar />
+  </header>
+
+  <main id="content">
+    <ProjectPage
+      title="Sistema GCA"
+      subtitle="Sistema de Gestión y Control de Asistencias"
+      categories={["Aplicación de Escritorio", "BETA"]}
+      banner="/img/projects/sistemagca.webp"
+      description="GCA es un sistema de control de asistencia de personal diseñado para gestionar los ingresos y egresos de empleados dentro de una empresa. El sistema registra los movimientos diarios para ofrecer información precisa sobre horas trabajadas, ausencias, tardanzas, justificaciones, horas extra y tiempo fuera del puesto laboral. La aplicación fue desarrollada como un sistema de escritorio utilizando C# .NET y Windows Forms, con foco en la confiabilidad y en un seguimiento preciso del tiempo para respaldar el control interno y la generación de reportes."
+      github="https://github.com/GuilleBouix/Sistema-GCA"
+      tech={["C#", "WinForms", "SQLite"]}
+    >
+  
+      <!-- Galería -->
+      <div slot="gallery">
+        <Gallery images={myImages} />
+      </div>
+  
+      <!-- Funcionalidades -->
+      <div slot="features" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+  
+        <FeaturesCard
+          title="Login de Usuarios"
+          description="Aplicación de escritorio para Windows con acceso mediante usuarios, proporcionando un punto de entrada controlado a las funcionalidades del sistema."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+          </svg>
+        </FeaturesCard>
+  
+        <FeaturesCard
+          title="Registro de Asistencias"
+          description="Panel central que muestra ingresos y egresos del personal, con filtros, búsquedas, registro manual, edición, eliminación y un historial completo de asistencias."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"/>
+          </svg>
+        </FeaturesCard>
+  
+        <FeaturesCard
+          title="Detección de Códigos por Teclado"
+          description="Listener de teclado que detecta códigos de 6 dígitos ingresados por teclado o pad numérico para registrar automáticamente los movimientos del personal."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="square" stroke-width="2" d="M8 15h7.01v.01H15L8 15Z"/>
+            <path stroke="currentColor" stroke-linecap="square" stroke-width="2" d="M20 6H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1Z"/>
+            <path stroke="currentColor" stroke-linecap="square" stroke-width="2" d="M6 9h.01v.01H6V9Zm0 3h.01v.01H6V12Zm0 3h.01v.01H6V15Zm3-6h.01v.01H9V9Zm0 3h.01v.01H9V12Zm3-3h.01v.01H12V9Zm0 3h.01v.01H12V12Zm3 0h.01v.01H15V12Zm3 0h.01v.01H18V12Zm0 3h.01v.01H18V15Zm-3-6h.01v.01H15V9Zm3 0h.01v.01H18V9Z"/>
+          </svg>
+        </FeaturesCard>
+  
+        <FeaturesCard
+          title="Gestión de Empleados"
+          description="Módulo para registrar, editar, eliminar, buscar y administrar empleados, incluyendo importación y exportación de datos."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
+          </svg>
+        </FeaturesCard>
+  
+        <FeaturesCard
+          title="Estadísticas y Reportes"
+          description="Panel con métricas clave como empleados activos, porcentaje de asistencia, tardanzas y ausencias diarias, gráficos semanales y mensuales, y reportes por departamento."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15v4m6-6v6m6-4v4m6-6v6M3 11l6-5 6 5 5.5-5.5"/>
+          </svg>
+        </FeaturesCard>
+  
+        <FeaturesCard
+          title="Configuración del Sistema"
+          description="Panel de ajustes para administrar datos de la empresa, días laborales, horarios de jornada, departamentos y puestos de trabajo."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13v-2a1 1 0 0 0-1-1h-.757l-.707-1.707.535-.536a1 1 0 0 0 0-1.414l-1.414-1.414a1 1 0 0 0-1.414 0l-.536.535L14 4.757V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v.757l-1.707.707-.536-.535a1 1 0 0 0-1.414 0L4.929 6.343a1 1 0 0 0 0 1.414l.536.536L4.757 10H4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h.757l.707 1.707-.535.536a1 1 0 0 0 0 1.414l1.414 1.414a1 1 0 0 0 1.414 0l.536-.535 1.707.707V20a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-.757l1.707-.708.536.536a1 1 0 0 0 1.414 0l1.414-1.414a1 1 0 0 0 0-1.414l-.535-.536.707-1.707H20a1 1 0 0 0 1-1Z"/>
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+          </svg>
+        </FeaturesCard>
+  
+      </div>
+    </ProjectPage>
+  </main>
+
+  <Footer />
+</Layout>

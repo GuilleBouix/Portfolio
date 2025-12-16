@@ -1,0 +1,97 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+import ProjectPage from "../../components/Projects/ProjectPage.astro";
+import Gallery from "../../components/Projects/Gallery.astro";
+import FeaturesCard from "../../components/Projects/FeaturesCard.astro";
+
+const myImages = [
+  { src: "/img/projects/beardcut/1.webp", alt: "Primera captura" },
+  { src: "/img/projects/beardcut/2.webp", alt: "Segunda captura" },
+  { src: "/img/projects/beardcut/3.webp", alt: "Tercera captura" },
+  { src: "/img/projects/beardcut/4.webp", alt: "Cuarta captura" },
+  { src: "/img/projects/beardcut/5.webp", alt: "Quinta captura" },
+  { src: "/img/projects/beardcut/6.webp", alt: "Sexta captura" },
+  { src: "/img/projects/beardcut/7.webp", alt: "Séptima captura" },
+  { src: "/img/projects/beardcut/8.webp", alt: "Octava captura" }
+]
+---
+
+<Layout>
+  <header>
+    <Navbar />
+  </header>
+  
+  <main id="content">
+    <ProjectPage
+      title="BeardCut"
+      subtitle="Sistema de turnos para barbería"
+      categories={["Full-Stack"]}
+      banner="/img/projects/beardcut.webp"
+      description="BeardCut es una aplicación web que combina una landing pública con un panel de administración desarrollado en Flask. La plataforma permite a los clientes reservar turnos directamente desde el sitio, mientras que el dueño del negocio gestiona reservas, horarios de atención, información del local y servicios disponibles desde un dashboard seguro. El sistema está pensado para centralizar la gestión diaria de turnos y reducir la coordinación manual entre clientes y el comercio."
+      github="https://github.com/GuilleBouix/Turnos-Barberia.git"
+      tech={["Astro", "JavaScript", "HTML", "Tailwind CSS", "Python", "Flask", "PostgreSQL"]}
+    >
+
+      <!-- Gallery -->
+      <div slot="gallery">
+        <Gallery images={myImages} />
+      </div>
+
+      <!-- Features -->
+      <div slot="features" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+
+        <FeaturesCard
+          title="Turnos y agenda"
+          description="Los visitantes pueden solicitar turnos directamente desde el sitio web, y el sistema valida la disponibilidad según los horarios configurados del local."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"/>
+          </svg>
+        </FeaturesCard>
+
+        <FeaturesCard
+          title="Panel de administración"
+          description="Panel simple donde el dueño puede visualizar todos los turnos en una tabla con fecha, horario, estado y acciones para completarlos o eliminarlos."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h6v6H4V4Zm10 0h6v6h-6V4ZM4 14h6v6H4v-6Zm10 0h6v6h-6v-6Z"/>
+          </svg>
+        </FeaturesCard>
+
+        <FeaturesCard
+          title="Horarios de atención"
+          description="Configuración de horarios laborales del negocio, que determinan automáticamente los turnos disponibles para los clientes."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+          </svg>
+        </FeaturesCard>
+
+        <FeaturesCard
+          title="Gestión de servicios"
+          description="Administración del catálogo de servicios con nombre, categoría y precio."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.583 8.445h.01M10.86 19.71l-6.573-6.63a.993.993 0 0 1 0-1.4l7.329-7.394A.98.98 0 0 1 12.31 4l5.734.007A1.968 1.968 0 0 1 20 5.983v5.5a.992.992 0 0 1-.316.727l-7.44 7.5a.974.974 0 0 1-1.384.001Z"/>
+          </svg>
+        </FeaturesCard>
+
+        <FeaturesCard
+          title="Perfil del negocio"
+          description="Configuración básica del nombre del local y su esquema de horarios, utilizados tanto en la landing como en el sistema de reservas."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5"/>
+          </svg>
+        </FeaturesCard>
+
+      </div>
+
+    </ProjectPage>
+  </main>
+  
+  <Footer />
+</Layout>

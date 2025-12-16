@@ -1,0 +1,84 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+import ProjectPage from "../../components/Projects/ProjectPage.astro";
+import Gallery from "../../components/Projects/Gallery.astro";
+import FeaturesCard from "../../components/Projects/FeaturesCard.astro";
+
+const myImages = [
+  { src: "/img/projects/lastdying/1.webp", alt: "Primera captura" },
+  { src: "/img/projects/lastdying/2.webp", alt: "Segunda captura" },
+  { src: "/img/projects/lastdying/3.webp", alt: "Tercera captura" },
+  { src: "/img/projects/lastdying/4.webp", alt: "Cuarta captura" },
+]
+---
+
+<Layout>
+  <header>
+    <Navbar />
+  </header>
+
+  <main id="content">
+    <ProjectPage
+      title="Last Dying"
+      subtitle="Sitio Web Oficial"
+      categories={["Frontend"]}
+      banner="/img/projects/lastdying.webp"
+      description="Desarrollé el sitio web oficial de Last Dying, un proyecto solista de metal instrumental. El sitio organiza el contenido en secciones claramente definidas, incluyendo el último lanzamiento, una discografía completa con previews de singles, EPs y álbumes, enlaces externos de compra a través de Bandcamp, una sección de biografía, formulario de contacto y acceso directo a plataformas digitales y redes sociales."
+      github="https://github.com/GuilleBouix/Last-Dying-Official-Website.git"
+      tech={["Astro", "JavaScript", "Tailwind CSS"]}
+    >
+  
+      <!-- Gallery -->
+      <div slot="gallery">
+        <Gallery images={myImages} />
+      </div>
+  
+      <!-- Features -->
+      <div slot="features" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+  
+        <FeaturesCard
+          title="Estructura de contenido"
+          description="Diseño basado en secciones claras: último lanzamiento, discografía, biografía, formulario de contacto y enlaces externos para una navegación simple e intuitiva."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"/>
+          </svg>
+        </FeaturesCard>
+  
+        <FeaturesCard
+          title="Discografía y enlaces externos"
+          description="Discografía completa con previews de audio y enlaces externos a Bandcamp, manteniendo las compras fuera del sitio y el frontend liviano."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 18c0 1.1046-.89543 2-2 2s-2-.8954-2-2 .89543-2 2-2 2 .8954 2 2Zm0 0V6.33333L18 4v11.6667M8 10.3333 18 8m0 8c0 1.1046-.8954 2-2 2s-2-.8954-2-2 .8954-2 2-2 2 .8954 2 2Z"/>
+          </svg>
+        </FeaturesCard>
+  
+        <FeaturesCard
+          title="Performance y SEO"
+          description="Construido con HTML semántico y recursos optimizados para tiempos de carga rápidos y mejor indexación en buscadores."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+          </svg>
+        </FeaturesCard>
+  
+        <FeaturesCard
+          title="Código mantenible"
+          description="Estructura simple y limpia, pensada para facilitar futuras actualizaciones y la incorporación de nuevos lanzamientos o contenido."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 8-4 4 4 4m8 0 4-4-4-4m-2-3-4 14"/>
+          </svg>
+        </FeaturesCard>
+  
+      </div>
+  
+    </ProjectPage>
+  </main>
+
+  <Footer />
+</Layout>

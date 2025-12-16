@@ -1,0 +1,52 @@
+---
+import Social from './About/Social.astro';
+import EmailSocial from './About/EmailSocial.astro';
+---
+
+<section id="about">
+    <div class="flex items-center justify-between gap-4 py-5 mx-auto max-w-5xl px-4 sm:px-6 lg:px-40">
+        <article class="flex flex-col">
+            <h1 data-aos="fade-in" data-aos-duration="800" class="text-title text-3xl font-bold">
+                Guillermo Daniel Bouix
+            </h1>
+            
+            <span data-aos="fade-in" data-aos-delay="100" class="flex items-center gap-1 text-paragraph/70 text-md font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4">
+                <path fill-rule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd" />
+                </svg>
+
+                Misiones, Argentina
+            </span>
+            
+            <p data-aos="fade-in" data-aos-duration="800" data-aos-delay="150" class="mt-2 text-paragraph max-w-xl font-regular">
+                Desarrollador especializado en crear soluciones digitales rápidas, eficientes y seguras.
+            </p>
+
+            <div data-aos="fade-in" data-aos-delay="200" class="mt-2 flex gap-2">
+                <Social ariaLabel="Perfil de LinkedIn" href="https://www.linkedin.com/in/guillermo-bouix" iconPath="/img/icons/linkedin.svg" />
+                <Social ariaLabel="Perfil de GitHub" href="https://github.com/GuilleBouix" iconPath="/img/icons/github.svg" />
+                <Social ariaLabel="Cuenta de Instagram" href="https://www.instagram.com/guillebouix.dev" iconPath="/img/icons/instagram.svg" />
+                <Social ariaLabel="Mensaje directo a WhatsApp" href="https://wa.me/5493755653522?text=Hola,%20te%20contacto%20desde%20tu%20portafolio.%20Me%20gustaria%20saber%20m%C3%A1s%20sobre%20tus%20proyectos%20o%20c%C3%B3mo%20podemos%20trabajar%20juntos" iconPath="/img/icons/whatsapp.svg" />
+                <EmailSocial ariaLabel="Copiar dirección de email" iconPath="/img/icons/email.svg" />
+            </div>
+        </article>
+
+        <div data-aos="flip-right" data-aos-duration="800" data-aos-delay="250" class="hidden sm:block mr-4">
+            <img loading="lazy" width="192" height="192" src="/img/profile.webp" alt="Foto de perfil de Guillermo Bouix" class="w-48 rounded-2xl object-cover object-top border-b-4 border-sky-500" />
+        </div>
+    </div>
+
+    <div class="flex flex-col gap-2 py-5 mx-auto max-w-5xl px-4 sm:px-6 lg:px-40">
+        <h2 data-aos="fade-in" data-aos-duration="800" data-aos-delay="300" class="text-title font-bold text-xl">
+            Sobre Mí
+        </h2>
+
+        <p data-aos="fade-in" data-aos-duration="800" data-aos-delay="350" class="text-paragraph">
+            Soy desarrollador de software con formación universitaria. Inicié mi camino en el desarrollo en el 2022 y me gradué como Analista Programador en 2025. También cuento con una certificación en Análisis de Datos obtenida a través del curso de Python para Ciencia de Datos e IA.
+            <br><br>
+            Mi enfoque profesional se centra en crear soluciones tecnológicas directas y funcionales, priorizando interfaces amigables que resuelvan problemas reales y mejoren la experiencia del usuario. Me apasiona transformar ideas abstractas en aplicaciones concretas que las personas puedan usar y aprovechar.
+            <br><br>
+            Actualmente busco consolidar mi carrera en la industria tecnológica, combinando mis habilidades técnicas con una comprensión profunda de las necesidades del mercado para desarrollar productos que generen un impacto positivo y marquen una diferencia real.
+        </p>
+    </div>
+</section>

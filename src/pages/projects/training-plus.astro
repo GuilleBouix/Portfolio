@@ -1,0 +1,104 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import ProjectPage from "../../components/Projects/ProjectPage.astro";
+import Gallery from "../../components/Projects/Gallery.astro";
+import FeaturesCard from "../../components/Projects/FeaturesCard.astro";
+
+const myImages = [
+  { src: "/img/projects/trainingplus/1.webp", alt: "Primera imagen" },
+  { src: "/img/projects/trainingplus/2.webp", alt: "Segunda imagen" },
+  { src: "/img/projects/trainingplus/3.webp", alt: "Tercera imagen" },
+  { src: "/img/projects/trainingplus/4.webp", alt: "Cuarta imagen" },
+  { src: "/img/projects/trainingplus/5.webp", alt: "Quinta imagen" },
+  { src: "/img/projects/trainingplus/6.webp", alt: "Sexta imagen" },
+  { src: "/img/projects/trainingplus/7.webp", alt: "Séptima imagen" },
+  { src: "/img/projects/trainingplus/8.webp", alt: "Octava imagen" }
+]
+---
+
+<Layout>
+  <header>
+    <Navbar />
+  </header>
+
+  <main id="content">
+    <ProjectPage
+      title="Training Plus"
+      subtitle="Sistema de Gestión y Seguimiento de Entrenamientos Personalizados"
+      categories={["Full-Stack", "Proyecto Final"]}
+      banner="/img/projects/trainingplus.webp"
+      description="Plataforma web desarrollada como proyecto de tesis para la carrera de Analista Programador (Agosto 2025), orientada a establecer un vínculo directo y continuo entre entrenadores y alumnos. La aplicación permite a los entrenadores crear y administrar rutinas de entrenamiento personalizadas, mientras que los alumnos pueden registrar y seguir su progreso mediante métricas en tiempo real. El sistema facilita el análisis del rendimiento por parte de ambos, permitiendo realizar ajustes sobre los planes de entrenamiento y fomentando una colaboración más cercana, asegurando que las rutinas se mantengan efectivas y optimizadas a lo largo del tiempo."
+      github="https://github.com/GuilleBouix/TrainingPlus-Tesis"
+      tech={["Python", "Flask", "JavaScript", "HTML", "CSS", "SQLite"]}
+    >
+
+      <!-- Galería -->
+      <div slot="gallery">
+        <Gallery images={myImages} />
+      </div>
+
+      <!-- Funcionalidades -->
+      <div slot="features" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+
+        <FeaturesCard
+          title="Dashboard Completo"
+          description="Estadísticas en tiempo real con métricas detalladas de progreso, vista global de todos los alumnos y análisis de rendimiento."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.143 4H4.857A.857.857 0 0 0 4 4.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 10 9.143V4.857A.857.857 0 0 0 9.143 4Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 20 9.143V4.857A.857.857 0 0 0 19.143 4Zm-10 10H4.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286A.857.857 0 0 0 9.143 14Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z"/>
+          </svg>
+        </FeaturesCard>
+
+        <FeaturesCard
+          title="Gestión de Rutinas"
+          description="Creación de rutinas estructuradas organizadas por semanas, días y ejercicios específicos. Planificación jerárquica totalmente personalizable."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 7 2 2 4-4m-5-9v4h4V3h-4Z"/>
+          </svg>
+        </FeaturesCard>
+
+        <FeaturesCard
+          title="Registro de Entrenamientos"
+          description="Seguimiento completo de series, repeticiones y pesos. Historial detallado de rendimiento por ejercicio con ajustes dinámicos."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.779 17.779 4.36 19.918 6.5 13.5m4.279 4.279 8.364-8.643a3.027 3.027 0 0 0-2.14-5.165 3.03 3.03 0 0 0-2.14.886L6.5 13.5m4.279 4.279L6.499 13.5m2.14 2.14 6.213-6.504M12.75 7.04 17 11.28"/>
+          </svg>
+        </FeaturesCard>
+
+        <FeaturesCard
+          title="Autenticación y Vinculación"
+          description="Sistema de roles para entrenadores y alumnos. Proceso de vinculación mediante solicitudes y gestión de contactos."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20a16.405 16.405 0 0 1-5.092-5.804A16.694 16.694 0 0 1 5 6.666L12 4l7 2.667a16.695 16.695 0 0 1-1.908 7.529A16.406 16.406 0 0 1 12 20Z"/>
+          </svg>
+        </FeaturesCard>
+
+        <FeaturesCard
+          title="Gráficos de Progreso"
+          description="Visualización del progreso mediante gráficos de rendimiento, récords personales y distribución por tipo de ejercicio (empuje, tracción, resistencia)."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v15a1 1 0 0 0 1 1h15M8 16l2.5-5.5 3 3L17.273 7 20 9.667"/>
+          </svg>
+        </FeaturesCard>
+
+        <FeaturesCard
+          title="Perfil de Usuario Editable"
+          description="Edición de datos personales, foto de perfil y preferencias desde un panel intuitivo."
+        >
+          <svg slot="icon" class="w-6 h-6 text-sky-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="2" d="M7 19H5a1 1 0 0 1-1-1v-1a3 3 0 0 1 3-3h1m4-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm7.441 1.559a1.907 1.907 0 0 1 0 2.698l-6.069 6.069L10 19l.674-3.372 6.07-6.07a1.907 1.907 0 0 1 2.697 0Z"/>
+          </svg>
+        </FeaturesCard>
+
+      </div>
+
+    </ProjectPage>
+  </main>
+  <Footer />
+</Layout>

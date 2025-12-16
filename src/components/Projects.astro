@@ -1,0 +1,63 @@
+---
+import ProjectCard from './Projects/ProjectCard.astro';
+---
+
+<section id="projects">
+    <div data-aos="zoom-in" data-aos-duration="800" class="flex justify-between items-center gap-2 py-5 mx-auto max-w-5xl px-4 sm:px-6 lg:px-40">
+        <h2 class="text-title font-bold text-xl">
+            Mis Proyectos
+        </h2>
+    </div>
+
+    <div class="overflow-hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mx-auto max-w-5xl px-4 sm:px-6 lg:px-40">
+        <ProjectCard
+            title="Training Plus"
+            type="Full-Stack"
+            description="Training+ es un sistema web diseñado para la gestión de entrenamientos personalizados, permitiendo una interacción eficiente entre entrenadores y alumnos. Lo desarrollé como proyecto final de tesis."
+            image="/img/projects/trainingplus.webp"
+            tech={["Python", "Flask", "JavaScript", "HTML", "CSS", "SQLite"]}
+            link="/projects/training-plus"
+            github="https://github.com/GuilleBouix/TrainingPlus-Tesis"
+        />
+
+        <ProjectCard
+            title="BeardCut"
+            type="Full-Stack"
+            description="BeardCut — Turnos Barbería es una landing page limpia respaldada por un panel de administración en Flask, donde el dueño puede gestionar reservas, configurar horarios de atención, actualizar información del negocio y controlar los servicios disponibles."
+            image="/img/projects/beardcut.webp"
+            tech={["Astro", "JavaScript", "HTML", "Tailwind CSS", "Python", "Flask", "PostgreSQL"]}
+            link="/projects/beardcut"
+            github="https://github.com/GuilleBouix/Turnos-Barberia"
+        />
+
+        <ProjectCard
+            title="Sistema GCA"
+            type="Desktop App"
+            description="GCA es un sistema de gestión y control de asistencia que ayuda a las empresas a registrar ingresos del personal, horarios y actividad diaria de forma simple y eficiente."
+            image="/img/projects/sistemagca.webp"
+            tech={["C#", "WinForms", "SQLite"]}
+            link="/projects/sistema-gca"
+            github="https://github.com/GuilleBouix/Sistema-GCA"
+        />
+
+        <ProjectCard
+            title="Sistema GCR"
+            type="Desktop App"
+            description="GCR es un sistema de gestión para negocios de comida rápida, con módulos de inventario, ventas, menús, combos y reportes, soportado por roles de administrador y operador."
+            image="/img/projects/sistemagcr.webp"
+            tech={["Microsoft Visual Basic 6.0", "Microsoft Access"]}
+            link="/projects/sistema-gcr"
+            github="https://github.com/GuilleBouix/Sistema-GCR.git"
+        />
+
+        <ProjectCard
+            title="Last Dying Website"
+            type="Frontend"
+            description="Sitio web oficial de Last Dying, un proyecto solista de metal instrumental. Incluye lanzamiento destacado, discografía completa con previews, enlaces externos de compra, biografía, formulario de contacto y enlaces a plataformas sociales. Desarrollado con foco en rendimiento, eficiencia y SEO."
+            image="/img/projects/lastdying.webp"
+            tech={["Astro", "JavaScript", "HTML", "Tailwind CSS"]}
+            link="/projects/last-dying-website"
+            github="https://github.com/GuilleBouix/Last-Dying-Official-Website"
+        />
+    </div>
+</section>

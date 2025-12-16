@@ -1,0 +1,66 @@
+<div id="certificateModal" class="hidden fixed inset-0 bg-black/90 z-50 items-center justify-center p-8">
+    <div class="relative flex items-center justify-center" style="width: 90vw; height: 90vh;">
+        <!-- Botón cerrar -->
+        <button id="closeModal" class="absolute top-2 right-2 bg-gray-800/80 rounded-full p-2 text-white hover:text-sky-400 hover:bg-gray-700 transition z-10 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        
+        <!-- Imagen del certificado -->
+        <img id="certificateImg" src="" alt="Certificate" style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;" class="rounded-lg shadow-2xl">
+    </div>
+</div>
+
+<script is:inline>
+    // Mapeo de botones a imágenes
+    const certificates = {
+        'btnCertificate1': '/img/certificates/certificate-1.png',
+        'btnCertificate2': '/img/certificates/certificate-2.png',
+        'btnCertificate3': '/img/certificates/certificate-3.png'
+    };
+
+    const modal = document.getElementById('certificateModal');
+    const certificateImg = document.getElementById('certificateImg');
+    const closeModal = document.getElementById('closeModal');
+
+    // Función para abrir modal
+    function openModal(imagePath) {
+        certificateImg.src = imagePath;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Prevenir scroll
+    }
+
+    // Función para cerrar modal
+    function closeModalFunc() {
+        modal.classList.add('hidden');
+        document.body.style.overflow = ''; // Restaurar scroll
+    }
+
+    // Agregar eventos a cada botón
+    Object.keys(certificates).forEach(btnId => {
+        const btn = document.getElementById(btnId);
+        if (btn) {
+            btn.addEventListener('click', () => {
+                openModal(certificates[btnId]);
+            });
+        }
+    });
+
+    // Cerrar con botón X
+    closeModal.addEventListener('click', closeModalFunc);
+
+    // Cerrar con click fuera de la imagen
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModalFunc();
+        }
+    });
+
+    // Cerrar con tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            closeModalFunc();
+        }
+    });
+</script>

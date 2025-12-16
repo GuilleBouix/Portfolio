@@ -1,0 +1,30 @@
+---
+const { iconPath, href, ariaLabel } = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={ariaLabel}
+  class="
+    group
+    flex items-center justify-center
+    size-9 rounded-full
+    border border-gray-500/30
+    text-white
+    transition
+    hover:bg-sky-500 hover:border-sky-500
+  "
+>
+  <div
+    class="
+      size-4.5
+      bg-sky-500
+      transition
+      group-hover:bg-white
+      mask-center mask-no-repeat mask-contain
+    "
+    style={`mask-image: url(${iconPath}); -webkit-mask-image: url(${iconPath});`}
+  ></div>
+</a>

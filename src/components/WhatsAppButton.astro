@@ -1,0 +1,29 @@
+---
+const phone = "5493755653522";
+const message = "Hola Guille! Quisiera hacer una consulta";
+---
+
+<a
+  href={`https://wa.me/${phone}?text=${encodeURIComponent(message)}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="WhatsApp"
+  class="
+    hidden lg:flex
+    fixed bottom-6 right-6 z-50
+    h-14 w-14
+    items-center justify-center
+    rounded-full
+    bg-[#25D366]
+    text-white
+    transition-all
+    hover:scale-110
+    active:scale-95
+  "
+>
+  <img
+    src="/img/icons/whatsapp.svg"
+    alt="WhatsApp"
+    class="h-7 w-7 filter invert"
+  />
+</a>

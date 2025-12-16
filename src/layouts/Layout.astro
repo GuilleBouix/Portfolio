@@ -1,0 +1,152 @@
+---
+import '../styles/global.css';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+const siteUrl = 'https://guillebouix.vercel.app';
+const title = 'Guille Bouix | Portafolio';
+const description =
+  'Analista programador y desarrollador de software especializado en backend y frontend, optimización web y desarrollo de aplicaciones eficientes y seguras.';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- SEO Básico -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="keywords" content="desarrollador web, desarrollador de software, programación, software, python, c#, javascript, analista programador" />
+		<meta name="author" content="Guillermo Daniel Bouix" />
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href={siteUrl} />
+		<link rel="alternate" hreflang="es" href={siteUrl} />
+
+		<!-- Open Graph -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content="Desarrollador de Software especializado en crear soluciones digitales rápidas, eficientes y seguras." />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={siteUrl} />
+		<meta property="og:image" content="/img/opengraph/image-opengraph.jpg" />
+		<meta property="og:site_name" content="Guille Bouix Portafolio" />
+
+		<!-- Twitter / X -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={siteUrl} />
+		<meta name="twitter:description" content="Desarrollador de Software especializado en crear soluciones digitales rápidas, eficientes y seguras." />
+		<meta name="twitter:image" content="/img/opengraph/x-opengraph.jpg"/>
+		
+		<!-- Favicon -->
+		<link rel="icon" href="/favicon.svg">
+
+		<!-- JSON-LD -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Person",
+				"name": "Guillermo Daniel Bouix",
+				"jobTitle": "Desarrollador Web y Analista Programador",
+				"url": "https://guillebouix.vercel.app",
+				"sameAs": [
+					"https://www.linkedin.com/in/guillermo-bouix",
+					"https://github.com/GuilleBouix"
+				]
+			}
+		</script>
+
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		<script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	</head>
+	<body class="font-inter min-h-screen m-0 p-0">
+		<slot />
+		<!-- Certificate Modal -->
+		<div id="certificateModal" aria-labelledby="certificateTitle" class="hidden fixed inset-0 bg-black/90 z-50 items-center justify-center p-8">
+			<div class="relative flex items-center justify-center" style="width: 90vw; height: 90dvh;">
+				<!-- Botón cerrar -->
+				<button id="closeModal" class="absolute top-2 right-2 bg-gray-800/80 rounded-full p-2 text-white hover:text-sky-400 hover:bg-gray-700 transition z-10 cursor-pointer">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+					</svg>
+				</button>
+				
+				<!-- Imagen del certificado -->
+				<img id="certificateImg" src="" alt="Certificate" style="max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;" class="rounded-lg shadow-2xl">
+			</div>
+		</div>
+
+		<WhatsAppButton />
+
+		<script is:inline>
+			AOS.init({
+				// Configuración de Animaciones
+				offset: 50,           // Se activa 50px ANTES de llegar al elemento
+				delay: 0,             // Sin retraso en la animación
+				duration: 400,        // Animación más rápida (400ms en lugar de 600ms)
+				
+				// Otras opciones
+				easing: 'ease-out-sine', // Curva de aceleración más suave
+				once: true,               // Animación solo una vez (mejor rendimiento)
+				mirror: false,
+				
+				// Configuración del viewport
+				anchorPlacement: 'top-bottom'
+			});
+		</script>
+
+		<!-- Certificate Modal Script -->
+		<script is:inline>
+			// Mapeo de botones a imágenes
+			const certificates = {
+				'btnCertificate1': '/img/certificates/certificate-1.webp',
+				'btnCertificate2': '/img/certificates/certificate-2.webp',
+				'btnCertificate3': '/img/certificates/certificate-3.webp'
+			};
+
+			const modal = document.getElementById('certificateModal');
+			const certificateImg = document.getElementById('certificateImg');
+			const closeModal = document.getElementById('closeModal');
+
+			// Función para abrir modal
+			function openModal(imagePath) {
+				certificateImg.src = imagePath;
+				modal.classList.remove('hidden');
+				document.body.style.overflow = 'hidden'; // Prevenir scroll
+			}
+
+			// Función para cerrar modal
+			function closeModalFunc() {
+				modal.classList.add('hidden');
+				document.body.style.overflow = ''; // Restaurar scroll
+			}
+
+			// Agregar eventos a cada botón
+			Object.keys(certificates).forEach(btnId => {
+				const btn = document.getElementById(btnId);
+				if (btn) {
+					btn.addEventListener('click', () => {
+						openModal(certificates[btnId]);
+					});
+				}
+			});
+
+			// Cerrar con botón X
+			closeModal.addEventListener('click', closeModalFunc);
+
+			// Cerrar con click fuera de la imagen
+			modal.addEventListener('click', (e) => {
+				if (e.target === modal) {
+					closeModalFunc();
+				}
+			});
+
+			// Cerrar con tecla ESC
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+					closeModalFunc();
+				}
+			});
+		</script>
+	</body>
+</html>
