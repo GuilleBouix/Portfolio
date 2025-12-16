@@ -4,8 +4,9 @@ import WhatsAppButton from '../components/WhatsAppButton.astro';
 
 const siteUrl = 'https://guillebouix.vercel.app';
 const title = 'Guille Bouix | Portafolio';
-const description =
-  'Analista programador y desarrollador de software especializado en backend y frontend, optimización web y desarrollo de aplicaciones eficientes y seguras.';
+const description = 'Analista programador y desarrollador de software especializado en backend y frontend, optimización web y desarrollo de aplicaciones eficientes y seguras.';
+
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 ---
 
 <!DOCTYPE html>
@@ -26,7 +27,7 @@ const description =
 
 		<!-- Open Graph -->
 		<meta property="og:title" content={title} />
-		<meta property="og:description" content="Desarrollador de Software especializado en crear soluciones digitales rápidas, eficientes y seguras." />
+		<meta property="og:description" content={description}/>
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={siteUrl} />
 		<meta property="og:image" content="/img/opengraph/image-opengraph.jpg" />
@@ -35,33 +36,46 @@ const description =
 		<!-- Twitter / X -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:url" content={siteUrl} />
-		<meta name="twitter:description" content="Desarrollador de Software especializado en crear soluciones digitales rápidas, eficientes y seguras." />
+		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content="/img/opengraph/x-opengraph.jpg"/>
 		
 		<!-- Favicon -->
 		<link rel="icon" href="/favicon.svg">
 
-		<!-- JSON-LD -->
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Person",
-				"name": "Guillermo Daniel Bouix",
-				"jobTitle": "Desarrollador Web y Analista Programador",
-				"url": "https://guillebouix.vercel.app",
-				"sameAs": [
-					"https://www.linkedin.com/in/guillermo-bouix",
-					"https://github.com/GuilleBouix"
-				]
-			}
+		<!-- Google Tag Manager -->
+		<script is:inline>
+		{`
+			(function(w,d,s,l,i){
+			w[l]=w[l]||[];
+			w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+			var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),
+			dl=l!='dataLayer'?'&l='+l:'';
+			j.async=true;
+			j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+			f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','${GTM_ID}');
+		`}
 		</script>
 
+		<!-- AOS -->
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 		<script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	</head>
+	
 	<body class="font-inter min-h-screen m-0 p-0">
+    	<!-- Google Tag Manager (noscript) -->
+		<noscript>
+			<iframe
+				src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+				height="0"
+				width="0"
+				style="display:none;visibility:hidden"
+			></iframe>
+		</noscript>
+		
 		<slot />
-		<!-- Certificate Modal -->
+		<!-- Modal de Certificados -->
 		<div id="certificateModal" aria-labelledby="certificateTitle" class="hidden fixed inset-0 bg-black/90 z-50 items-center justify-center p-8">
 			<div class="relative flex items-center justify-center" style="width: 90vw; height: 90dvh;">
 				<!-- Botón cerrar -->
@@ -78,16 +92,17 @@ const description =
 
 		<WhatsAppButton />
 
+		<!-- Configuración AOS -->
 		<script is:inline>
 			AOS.init({
 				// Configuración de Animaciones
-				offset: 50,           // Se activa 50px ANTES de llegar al elemento
-				delay: 0,             // Sin retraso en la animación
-				duration: 400,        // Animación más rápida (400ms en lugar de 600ms)
+				offset: 50,
+				delay: 0,
+				duration: 400,
 				
 				// Otras opciones
-				easing: 'ease-out-sine', // Curva de aceleración más suave
-				once: true,               // Animación solo una vez (mejor rendimiento)
+				easing: 'ease-out-sine',
+				once: true,
 				mirror: false,
 				
 				// Configuración del viewport
@@ -95,7 +110,7 @@ const description =
 			});
 		</script>
 
-		<!-- Certificate Modal Script -->
+		<!-- Script Modal de Certificados -->
 		<script is:inline>
 			// Mapeo de botones a imágenes
 			const certificates = {
@@ -147,6 +162,21 @@ const description =
 					closeModalFunc();
 				}
 			});
+		</script>
+
+		<!-- JSON-LD -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Person",
+				"name": "Guillermo Daniel Bouix",
+				"jobTitle": "Desarrollador Web y Analista Programador",
+				"url": "https://guillebouix.vercel.app",
+				"sameAs": [
+					"https://www.linkedin.com/in/guillermo-bouix",
+					"https://github.com/GuilleBouix"
+				]
+			}
 		</script>
 	</body>
 </html>
