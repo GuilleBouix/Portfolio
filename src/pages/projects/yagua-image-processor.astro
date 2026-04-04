@@ -1,0 +1,59 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import ProjectPage from "../../components/Projects/ProjectPage.astro";
+import Gallery from "../../components/Projects/Gallery.astro";
+import FeaturesCard from "../../components/Projects/FeaturesCard.astro";
+
+const myImages = [
+  { src: "/img/projects/yagua/1.webp", alt: "Captura 1" },
+  { src: "/img/projects/yagua/2.webp", alt: "Captura 2" },
+  { src: "/img/projects/yagua/3.webp", alt: "Captura 3" },
+  { src: "/img/projects/yagua/4.webp", alt: "Captura 4" },
+  { src: "/img/projects/yagua/5.webp", alt: "Captura 5" },
+  { src: "/img/projects/yagua/6.webp", alt: "Captura 6" },
+  { src: "/img/projects/yagua/7.webp", alt: "Captura 7" },
+  { src: "/img/projects/yagua/8.webp", alt: "Captura 8" }
+]
+---
+
+<Layout>
+  <header>
+    <Navbar />
+  </header>
+
+  <main id="content">
+    <ProjectPage
+      title="Yagua Image Processor"
+      subtitle="Software open-source de procesamiento de imágenes"
+      categories={["Desktop App", "Open Source"]}
+      banner="/img/projects/yagua.webp"
+      description="Aplicación de escritorio para procesamiento inteligente de imágenes, diseñada para comprimir, convertir, remover fondos, extraer paletas y optimizar recursos visuales desde una interfaz rápida y productiva."
+      github="https://github.com/GuilleBouix/YaguaImageProcessor"
+      tech={["Python", "CustomTkinter", "Pillow", "rembg", "piexif", "Pytest"]}
+    >
+
+      <!-- Gallery -->
+      <div slot="gallery">
+        <Gallery images={myImages} />
+      </div>
+
+      <!-- Funcionalidades -->
+      <ul slot="features" class="list-disc list-inside space-y-3 mt-2">
+        <FeaturesCard title="Compresión inteligente con control de calidad" description="Reducción de peso con ajuste preciso de calidad de salida." />
+        <FeaturesCard title="Conversión entre múltiples formatos" description="Soporte para PNG, JPG, WebP, AVIF y más." />
+        <FeaturesCard title="Eliminación de fondo con IA" description="Remoción precisa del fondo usando rembg offline." />
+        <FeaturesCard title="Redimensionado, recorte y edición en canvas" description="Herramientas de edición integradas para ajuste visual." />
+        <FeaturesCard title="Extracción automática de paleta de colores" description="Generación de paletas desde imágenes automáticamente." />
+        <FeaturesCard title="Renombrado masivo con vista previa" description="Renombrado en lote con preview antes de aplicar." />
+        <FeaturesCard title="Gestión de metadatos EXIF" description="Visualizar, editar y limpiar metadatos con piexif." />
+        <FeaturesCard title="Generación de LQIP y Base64" description="Creación de placeholders optimizados para web." />
+        <FeaturesCard title="Soporte multi-idioma" description="Disponible en español, inglés y portugués." />
+        <FeaturesCard title="Temas oscuros predefinidos" description="Estética dark theme adaptada al sistema." />
+      </ul>
+
+    </ProjectPage>
+  </main>
+  <Footer />
+</Layout>

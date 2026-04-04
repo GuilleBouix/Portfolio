@@ -3,42 +3,48 @@ const {
   title, 
   type, 
   description, 
-  image, 
+  image,
+  logoSize = "2xl",
   tech = [], 
   link, 
   github 
 } = Astro.props;
 ---
 
-<article data-aos="zoom-in" data-aos-duration="800" class="relative bg-gray-800/40 border border-gray-500/20 rounded-2xl overflow-hidden shadow-lg w-full">
+<article data-aos="zoom-in" data-aos-duration="800" class="relative bg-surface-low border border-border rounded overflow-hidden shadow-lg w-full">
 
   {github && (
-    <a href={github} target="_blank" class="absolute top-3 right-3 size-10 rounded-full flex items-center justify-center bg-gray-900/70 border border-gray-500/30 hover:bg-gray-500/20 hover:border-gray-500/20 transition cursor-pointer">
-      <div class="size-5 bg-white mask-center mask-no-repeat mask-contain" style={`mask-image: url(/img/icons/github.svg); -webkit-mask-image: url(/img/icons/github.svg);`}></div>
+    <a href={github} target="_blank" class="group absolute top-3 right-3 size-10 rounded-full flex items-center justify-center bg-transparent border border-border hover:bg-white hover:border-white transition cursor-pointer">
+      <div class="size-5 bg-white mask-center mask-no-repeat mask-contain group-hover:invert transition" style={`mask-image: url(/img/icons/github.svg); -webkit-mask-image: url(/img/icons/github.svg);`}></div>
     </a>
   )}
 
-  <img width="30" height="20" src={image} alt={title} class="w-full aspect-3/2 object-cover select-none border-b border-gray-500/20" />
+  <div class="w-full aspect-3/2 bg-surface border-b border-surface-low flex items-center justify-center p-4">
+    <img src={image} alt={title} class={`object-contain select-none ${logoSize === "sm" ? "w-16" : ""} ${logoSize === "md" ? "w-24" : ""} ${logoSize === "lg" ? "w-32" : ""} ${logoSize === "xl" ? "w-40" : ""} ${logoSize === "2xl" ? "w-48" : ""}`} />
+  </div>
 
   <div class="p-4 flex flex-col gap-3">
 
     <div class="flex items-center justify-between">
-      <h3 class="text-xl font-semibold text-title">{title}</h3>
-      <span class="text-sm text-sky-500 font-medium">{type}</span>
+      <h3 class="font-jetbrains text-xl font-bold text-title">{title}</h3>
+      <span class="font-jetbrains text-sm text-white/50 font-medium">{type}</span>
     </div>
 
-    <p class="text-paragraph text-sm leading-relaxed">{description}</p>
+    <p class="text-white/75 text-sm leading-relaxed">{description}</p>
 
     {tech.length > 0 && (
       <div class="flex flex-wrap gap-2 mt-1">
         {tech.map((t: string) => (
-          <span class="text-xs px-2 py-1 rounded-md bg-gray-700/50 text-paragraph border border-gray-500/20">{t}</span>
+          <span class="font-jetbrains text-xs px-2 py-1 rounded-md bg-interactive text-white/75 border border-border">{t}</span>
         ))}
       </div>
     )}
 
     {link && (
-      <a href={link} class="mt-2 inline-block text-sky-500 hover:text-sky-400 font-medium transition text-sm">Ver más →</a>
+      <a href={link} class="group font-jetbrains mt-2 inline-flex items-center gap-1 text-white/75 font-medium transition text-sm hover:text-white">
+        Ver más
+        <span class="group-hover:translate-x-1 transition-transform duration-200">→</span>
+      </a>
     )}
 
   </div>

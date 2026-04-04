@@ -1,0 +1,55 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import ProjectPage from "../../components/Projects/ProjectPage.astro";
+import Gallery from "../../components/Projects/Gallery.astro";
+import FeaturesCard from "../../components/Projects/FeaturesCard.astro";
+
+const myImages = [
+  { src: "/img/projects/textly-chat/1.webp", alt: "Captura 1" },
+  { src: "/img/projects/textly-chat/2.webp", alt: "Captura 2" },
+  { src: "/img/projects/textly-chat/3.webp", alt: "Captura 3" },
+  { src: "/img/projects/textly-chat/4.webp", alt: "Captura 4" },
+  { src: "/img/projects/textly-chat/5.webp", alt: "Captura 5" },
+  { src: "/img/projects/textly-chat/6.webp", alt: "Captura 6" }
+]
+---
+
+<Layout>
+  <header>
+    <Navbar />
+  </header>
+
+  <main id="content">
+    <ProjectPage
+      title="Textly Chat"
+      subtitle="Chat privado por salas con asistencia de IA integrada"
+      categories={["Full-Stack"]}
+      banner="/img/projects/textly-chat.webp"
+      description="Aplicación de mensajería en tiempo real basada en salas privadas entre dos personas, potenciada con inteligencia artificial para mejorar la redacción, claridad y traducción instantánea de mensajes."
+      github="https://github.com/GuilleBouix/Textly-Chat"
+      tech={["Next.js", "React", "TypeScript", "Tailwind CSS", "Gemini Flash API"]}
+    >
+
+      <!-- Gallery -->
+      <div slot="gallery">
+        <Gallery images={myImages} />
+      </div>
+
+      <!-- Funcionalidades -->
+      <ul slot="features" class="list-disc list-inside space-y-3 mt-2">
+        <FeaturesCard title="Chat en tiempo real por salas privadas" description="Conversaciones uno a uno entre dos usuarios." />
+        <FeaturesCard title="Asistencia de IA para mejorar redacción" description="Reformulación automática para mayor claridad." />
+        <FeaturesCard title="Traducción inteligente de mensajes" description="Traducción en tiempo real antes del envío." />
+        <FeaturesCard title="Streaming de respuestas" description="Respuestas y asistencia fluida en tiempo real." />
+        <FeaturesCard title="UI moderna estilo SaaS" description="Interfaz minimalista y centrada en la experiencia del usuario." />
+        <FeaturesCard title="Diseño totalmente responsive" description="Optimizado para desktop y móvil." />
+        <FeaturesCard title="Dark theme premium" description="Estética sofisticada con colores oscuros." />
+        <FeaturesCard title="Arquitectura modular" description="Escalable y fácil de mantener." />
+      </ul>
+
+    </ProjectPage>
+  </main>
+  <Footer />
+</Layout>

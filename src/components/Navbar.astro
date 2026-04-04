@@ -28,11 +28,33 @@
 
 <nav class="relative font-inter">
   <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-40">
-    <div class="relative flex h-16 items-center justify-between border-b border-gray-500/30">
+    <div class="relative flex h-16 items-center justify-between border-b border-border">
 
       <!-- Logo -->
       <div class="absolute inset-y-0 left-0 flex items-center sm:static">
-        <img src="/img/logo.svg" alt="BouixDev Logo" class="h-8 w-auto" />
+        <a href="/" class="group relative block h-8 w-auto overflow-visible" aria-label="Home">
+          <img 
+            src="/img/logo.webp" 
+            alt="BouixDev Logo" 
+            class="h-8 w-auto block relative z-10" 
+          />
+          
+          <img 
+            src="/img/logo.webp" 
+            aria-hidden="true"
+            class="absolute top-0 left-0.5 h-8 w-auto opacity-0 
+                  group-hover:opacity-100 group-hover:animate-glitch-1 
+                  drop-shadow-[-1px_0_#d1d5db] brightness-125 z-0" 
+          />
+          
+          <img 
+            src="/img/logo.webp" 
+            aria-hidden="true"
+            class="absolute top-0 -left-0.5 h-8 w-auto opacity-0 
+                  group-hover:opacity-100 group-hover:animate-glitch-2 
+                  drop-shadow-[1px_0_#4b5563] contrast-150 z-0" 
+          />
+        </a>
       </div>
 
       <!-- Enlaces rápidos -->
@@ -40,24 +62,24 @@
 
         <!-- Enlaces Desktop -->
         <div class="hidden sm:block">
-          <div class="flex space-x-4">
-            <a rel="noopener noreferrer" aria-label="Sección sobre Guillermo Bouix" data-aos="fade-in" data-aos-duration="400" href="/" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">
+          <div class="flex space-x-4 font-jetbrains text-white/75">
+            <a rel="noopener noreferrer" aria-label="Sección sobre Guillermo Bouix" data-aos="fade-in" data-aos-duration="400" href="/" class="rounded-md px-3 py-2 text-sm font-medium hover:text-white transition-colors">
                 Sobre Mí
             </a>
 
-            <a rel="noopener noreferrer" aria-label="Sección de proyectos" data-aos="fade-in" data-aos-duration="400" data-aos-delay="50" href="/#projects" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">
+            <a rel="noopener noreferrer" aria-label="Sección de proyectos" data-aos="fade-in" data-aos-duration="400" data-aos-delay="50" href="/#projects" class="rounded-md px-3 py-2 text-sm font-medium hover:text-white transition-colors">
                 Proyectos
             </a>
 
-            <a rel="noopener noreferrer" aria-label="Sección de formación académica" data-aos="fade-in" data-aos-duration="400" data-aos-delay="100" href="/#education" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">
+            <a rel="noopener noreferrer" aria-label="Sección de formación académica" data-aos="fade-in" data-aos-duration="400" data-aos-delay="100" href="/#education" class="rounded-md px-3 py-2 text-sm font-medium hover:text-white transition-colors">
                 Formación
             </a>
 
-            <a rel="noopener noreferrer" aria-label="Sección de habilidades y conocimientos" data-aos="fade-in" data-aos-duration="400" data-aos-delay="150" href="/#skills" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">
+            <a rel="noopener noreferrer" aria-label="Sección de habilidades y conocimientos" data-aos="fade-in" data-aos-duration="400" data-aos-delay="150" href="/#skills" class="rounded-md px-3 py-2 text-sm font-medium hover:text-white transition-colors">
                 Habilidades
             </a>
 
-            <a rel="noopener noreferrer" aria-label="Sección de contacto" data-aos="fade-in" data-aos-duration="400" data-aos-delay="200" href="/#contact" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors">
+            <a rel="noopener noreferrer" aria-label="Sección de contacto" data-aos="fade-in" data-aos-duration="400" data-aos-delay="200" href="/#contact" class="rounded-md px-3 py-2 text-sm font-medium hover:text-white transition-colors">
                 Contacto
             </a>
           </div>
@@ -101,89 +123,22 @@
   <!-- Mobile menu -->
   <div 
     id="mobile-menu"
-    class="sm:hidden absolute left-4 right-4 top-full mt-2 bg-gray-900/95 border border-gray-500/30 backdrop-blur-md z-50 rounded-lg overflow-hidden menu-mobile hidden"
+    class="sm:hidden absolute left-4 right-4 top-full mt-2 bg-surface border border-border backdrop-blur-md z-50 rounded-lg overflow-hidden menu-mobile hidden"
   >
     <div class="space-y-1 px-2 py-3">
-      <a rel="noopener noreferrer" aria-label="Sección sobre Guillermo Bouix" href="/#about" class="menu-item block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition-colors">Sobre Mí</a>
+      <a rel="noopener noreferrer" aria-label="Sección sobre Guillermo Bouix" href="/#about" class="menu-item block rounded-md px-3 py-2 text-base font-jetbrains font-medium text-gray-300 hover:text-white hover:bg-interactive transition-colors">Sobre Mí</a>
       
-      <a rel="noopener noreferrer" aria-label="Sección de proyectos" href="/#projects" class="menu-item block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition-colors">Proyectos</a>
+      <a rel="noopener noreferrer" aria-label="Sección de proyectos" href="/#projects" class="menu-item block rounded-md px-3 py-2 text-base font-jetbrains font-medium text-gray-300 hover:text-white hover:bg-interactive transition-colors">Proyectos</a>
       
-      <a rel="noopener noreferrer" aria-label="Sección de formación académica" href="/#education" class="menu-item block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition-colors">Formación</a>
+      <a rel="noopener noreferrer" aria-label="Sección de formación académica" href="/#education" class="menu-item block rounded-md px-3 py-2 text-base font-jetbrains font-medium text-gray-300 hover:text-white hover:bg-interactive transition-colors">Formación</a>
       
-      <a rel="noopener noreferrer" aria-label="Sección de habilidades y conocimientos" href="/#skills" class="menu-item block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition-colors">Habilidades</a>
+      <a rel="noopener noreferrer" aria-label="Sección de habilidades y conocimientos" href="/#skills" class="menu-item block rounded-md px-3 py-2 text-base font-jetbrains font-medium text-gray-300 hover:text-white hover:bg-interactive transition-colors">Habilidades</a>
       
-      <a rel="noopener noreferrer" aria-label="Sección de contacto" href="/#contact" class="menu-item block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition-colors">Contacto</a>
+      <a rel="noopener noreferrer" aria-label="Sección de contacto" href="/#contact" class="menu-item block rounded-md px-3 py-2 text-base font-jetbrains font-medium text-gray-300 hover:text-white hover:bg-interactive transition-colors">Contacto</a>
     </div>
   </div>
 </nav>
 
-<script is:inline>
-  const menuToggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const iconBurger = document.getElementById('icon-burger');
-  const iconClose = document.getElementById('icon-close');
-  const menuItems = document.querySelectorAll('.menu-item');
-  let isOpen = false;
-
-  menuToggle.addEventListener('click', () => {
-    isOpen = !isOpen;
-    
-    if (isOpen) {
-      // Mostrar menú
-      mobileMenu.classList.remove('hidden');
-      setTimeout(() => {
-        mobileMenu.classList.add('show');
-      }, 10);
-      
-      // Animar items del menú con delay escalonado
-      menuItems.forEach((item, index) => {
-        setTimeout(() => {
-          item.classList.add('show');
-        }, 50 + (index * 50));
-      });
-      
-      // Cambiar íconos con Tailwind
-      iconBurger.classList.remove('opacity-100', 'rotate-0');
-      iconBurger.classList.add('opacity-0', 'rotate-90');
-      iconClose.classList.remove('opacity-0', 'rotate-90');
-      iconClose.classList.add('opacity-100', 'rotate-0');
-    } else {
-      // Ocultar menú
-      menuItems.forEach(item => {
-        item.classList.remove('show');
-      });
-      
-      mobileMenu.classList.remove('show');
-      setTimeout(() => {
-        mobileMenu.classList.add('hidden');
-      }, 300);
-      
-      // Cambiar íconos con Tailwind
-      iconClose.classList.remove('opacity-100', 'rotate-0');
-      iconClose.classList.add('opacity-0', 'rotate-90');
-      iconBurger.classList.remove('opacity-0', 'rotate-90');
-      iconBurger.classList.add('opacity-100', 'rotate-0');
-    }
-  });
-
-  // Cerrar al hacer click fuera
-  document.addEventListener('click', (e) => {
-    if (isOpen && !menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-      isOpen = false;
-      
-      menuItems.forEach(item => {
-        item.classList.remove('show');
-      });
-      
-      mobileMenu.classList.remove('show');
-      setTimeout(() => {
-        mobileMenu.classList.add('hidden');
-      }, 300);
-      
-      iconClose.classList.remove('opacity-100', 'rotate-0');
-      iconClose.classList.add('opacity-0', 'rotate-90');
-      iconBurger.classList.remove('opacity-0', 'rotate-90');
-      iconBurger.classList.add('opacity-100', 'rotate-0');
-    }
-  });
+<script>
+  import '../scripts/navbar.ts';
 </script>

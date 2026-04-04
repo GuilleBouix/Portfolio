@@ -39,8 +39,14 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content="/img/opengraph/x-opengraph.jpg"/>
 		
-		<!-- Favicon -->
-		<link rel="icon" href="/favicon.svg">
+		<!-- Favicon (theme-aware) -->
+		<link rel="icon" href="/favicon-dark.svg" id="favicon">
+		<script is:inline>
+			(function() {
+				const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				document.getElementById('favicon').href = isDark ? '/favicon-dark.svg' : '/favicon-light.svg';
+			})();
+		</script>
 
 		<!-- Google Tag Manager -->
 		<script is:inline define:vars={{ GTM_ID }}>
@@ -77,7 +83,7 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 		<div id="certificateModal" aria-labelledby="certificateTitle" class="hidden fixed inset-0 bg-black/90 z-50 items-center justify-center p-8">
 			<div class="relative flex items-center justify-center" style="width: 90vw; height: 90dvh;">
 				<!-- Botón cerrar -->
-				<button id="closeModal" class="absolute top-2 right-2 bg-gray-800/80 rounded-full p-2 text-white hover:text-sky-400 hover:bg-gray-700 transition z-10 cursor-pointer">
+				<button id="closeModal" class="absolute top-2 right-2 bg-interactive rounded-full p-2 text-white hover:text-sky-400 hover:bg-interactive/80 transition z-10 cursor-pointer">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
 					</svg>
@@ -90,76 +96,9 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 
 		<WhatsAppButton />
 
-		<!-- Configuración AOS -->
-		<script is:inline>
-			AOS.init({
-				// Configuración de Animaciones
-				offset: 50,
-				delay: 0,
-				duration: 400,
-				
-				// Otras opciones
-				easing: 'ease-out-sine',
-				once: true,
-				mirror: false,
-				
-				// Configuración del viewport
-				anchorPlacement: 'top-bottom'
-			});
-		</script>
-
-		<!-- Script Modal de Certificados -->
-		<script is:inline>
-			// Mapeo de botones a imágenes
-			const certificates = {
-				'btnCertificate1': '/img/certificates/certificate-1.webp',
-				'btnCertificate2': '/img/certificates/certificate-2.webp',
-				'btnCertificate3': '/img/certificates/certificate-3.webp'
-			};
-
-			const modal = document.getElementById('certificateModal');
-			const certificateImg = document.getElementById('certificateImg');
-			const closeModal = document.getElementById('closeModal');
-
-			// Función para abrir modal
-			function openModal(imagePath) {
-				certificateImg.src = imagePath;
-				modal.classList.remove('hidden');
-				document.body.style.overflow = 'hidden'; // Prevenir scroll
-			}
-
-			// Función para cerrar modal
-			function closeModalFunc() {
-				modal.classList.add('hidden');
-				document.body.style.overflow = ''; // Restaurar scroll
-			}
-
-			// Agregar eventos a cada botón
-			Object.keys(certificates).forEach(btnId => {
-				const btn = document.getElementById(btnId);
-				if (btn) {
-					btn.addEventListener('click', () => {
-						openModal(certificates[btnId]);
-					});
-				}
-			});
-
-			// Cerrar con botón X
-			closeModal.addEventListener('click', closeModalFunc);
-
-			// Cerrar con click fuera de la imagen
-			modal.addEventListener('click', (e) => {
-				if (e.target === modal) {
-					closeModalFunc();
-				}
-			});
-
-			// Cerrar con tecla ESC
-			document.addEventListener('keydown', (e) => {
-				if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-					closeModalFunc();
-				}
-			});
+		<script>
+			import '../scripts/aos.ts';
+			import '../scripts/certificate-modal.ts';
 		</script>
 
 		<!-- JSON-LD -->

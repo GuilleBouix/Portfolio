@@ -11,18 +11,18 @@ const { iconPath, href, ariaLabel } = Astro.props;
     group
     flex items-center justify-center
     size-9 rounded-full
-    border border-gray-500/30
+    border border-border
     text-white
     transition
-    hover:bg-sky-500 hover:border-sky-500
+    hover:bg-white
   "
 >
   <div
     class="
       size-4.5
-      bg-sky-500
+      bg-white
       transition
-      group-hover:bg-white
+      group-hover:bg-black
       mask-center mask-no-repeat mask-contain
     "
     style={`mask-image: url(${iconPath}); -webkit-mask-image: url(${iconPath});`}

@@ -1,18 +1,130 @@
 @import "tailwindcss";
 
-/* Customs Styles */
+/* Custom Fonts */
 @font-face {
-  font-family: Inter;
+  font-family: "Inter";
   font-style: normal;
   font-weight: 200 700;
   font-display: swap;
-  src: url("/fonts/Inter-VariableFont.ttf") format("ttf");
+  src: url("/fonts/Inter-VariableFont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "JetBrainsMono";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("/fonts/JetBrainsMono-VariableFont_wght.ttf") format("truetype");
 }
 
 @theme {
-  --font-inter: "Inter", sans-serif; 
-  --color-title: #FFFFFF;
-  --color-paragraph: #b7c0d3;
+  --font-inter: "Inter", sans-serif;
+  --font-jetbrains: "JetBrainsMono", monospace;
+  --color-title: #ffffff;
+  --color-paragraph: #919191;
+  --color-surface: #111317;
+  --color-surface-low: #1a1c20;
+  --color-surface-high: #333539;
+  --color-surface-highest: #474747;
+  --color-outline: #474747;
+  --color-interactive: #333539;
+  --color-border: #474747;
+
+  /* Animaciones Glitch */
+  @keyframes glitch-1 {
+    0% {
+      clip-path: inset(20% 0 50% 0);
+    }
+    20% {
+      clip-path: inset(80% 0 10% 0);
+    }
+    40% {
+      clip-path: inset(10% 0 60% 0);
+    }
+    60% {
+      clip-path: inset(70% 0 20% 0);
+    }
+    80% {
+      clip-path: inset(30% 0 40% 0);
+    }
+    100% {
+      clip-path: inset(50% 0 30% 0);
+    }
+  }
+
+  @keyframes glitch-2 {
+    0% {
+      clip-path: inset(50% 0 20% 0);
+    }
+    20% {
+      clip-path: inset(10% 0 80% 0);
+    }
+    40% {
+      clip-path: inset(60% 0 10% 0);
+    }
+    60% {
+      clip-path: inset(20% 0 70% 0);
+    }
+    80% {
+      clip-path: inset(40% 0 30% 0);
+    }
+    100% {
+      clip-path: inset(30% 0 50% 0);
+    }
+  }
+
+  --animate-glitch-1: glitch-1 0.25s infinite linear alternate-reverse;
+  --animate-glitch-2: glitch-2 0.25s infinite linear alternate-reverse;
+
+  @keyframes glitch-subtle-1 {
+    0%,
+    100% {
+      clip-path: inset(80% 0 10% 0);
+      transform: translateX(-1px);
+    }
+    20% {
+      clip-path: inset(10% 0 85% 0);
+      transform: translateX(1px);
+    }
+    40% {
+      clip-path: inset(45% 0 45% 0);
+      transform: translateX(-1px);
+    }
+    60% {
+      clip-path: inset(10% 0 10% 0);
+      opacity: 0.7;
+    }
+    80% {
+      clip-path: inset(70% 0 20% 0);
+      transform: translateX(1px);
+    }
+  }
+
+  @keyframes glitch-subtle-2 {
+    0%,
+    100% {
+      clip-path: inset(15% 0 75% 0);
+      transform: translateX(1px);
+    }
+    25% {
+      clip-path: inset(65% 0 25% 0);
+      transform: translateX(-1px);
+    }
+    50% {
+      clip-path: inset(30% 0 60% 0);
+      transform: translateX(1px);
+    }
+    75% {
+      clip-path: inset(85% 0 5% 0);
+      opacity: 0.7;
+    }
+  }
+
+  /* Animación más lenta (0.4s) para que no sea tan frenética */
+  --animate-glitch-subtle-1: glitch-subtle-1 0.4s infinite linear
+    alternate-reverse;
+  --animate-glitch-subtle-2: glitch-subtle-2 0.4s infinite linear
+    alternate-reverse;
 }
 
 html {
@@ -23,9 +135,7 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%) fixed;
+  background: #111317;
   background-repeat: no-repeat;
   background-size: cover;
   overscroll-behavior: none;

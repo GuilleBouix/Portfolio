@@ -9,42 +9,25 @@ const { iconPath, email, ariaLabel } = Astro.props;
     group
     flex items-center justify-center
     size-9 rounded-full
-    border border-gray-500/30
+    border border-border
     text-white
     transition
-    hover:bg-sky-500 hover:border-sky-500
+    hover:bg-white
     cursor-pointer
   "
 >
   <div
     class="
       size-4.5
-      bg-sky-500
+      bg-white
       transition
-      group-hover:bg-white
+      group-hover:bg-black
       mask-center mask-no-repeat mask-contain
     "
     style={`mask-image: url(${iconPath}); -webkit-mask-image: url(${iconPath});`}
   ></div>
 </button>
 
-<script is:inline>
-  // Clipboard Email Copy Script
-  let emailCopy = "bouix.dev@gmail.com";
-
-  const copiarAlPortapapapeles = async () => {
-    try {
-      await navigator.clipboard.writeText(emailCopy);
-      alert("¡Dirección de Email copiada!");
-    } catch (err) {
-      console.error("Error al copiar la dirección de Email: ", err);
-    }
-  };
-
-  // Button Code
-  const btn = document.getElementById("copy-email-btn");
-
-  if (btn) {
-      btn.addEventListener("click", copiarAlPortapapapeles);
-  }
+<script>
+  import '../../scripts/email.ts';
 </script>
