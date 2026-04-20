@@ -95,9 +95,7 @@
       ...geo,
     };
 
-    const blob = new Blob([JSON.stringify(payload)], {
-      type: "application/json",
-    });
+    const blob = new Blob([JSON.stringify(payload)], { type: "text/plain" });
     navigator.sendBeacon(APPS_SCRIPT_URL, blob);
   }
 
