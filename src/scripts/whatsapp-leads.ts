@@ -15,13 +15,7 @@
     dispositivo: string;
   }
 
-  interface GeoInfo {
-    ip: string;
-    pais: string;
-    ciudad: string;
-  }
-
-  interface LeadPayload extends UTMs, UAInfo, GeoInfo {
+  interface LeadPayload extends UTMs, UAInfo {
     timestamp: string;
     pagina: string;
     resolucion: string;
@@ -63,23 +57,9 @@
     return { os, navegador, dispositivo };
   }
 
-  async function getGeoIP(): Promise<GeoInfo> {
-    try {
-      const res = await fetch(
-        "https://ip-api.com/json/?fields=status,country,city,query",
-      );
-      const geo = await res.json();
-      if (geo.status === "success") {
-        return { ip: geo.query, pais: geo.country, ciudad: geo.city };
-      }
-    } catch (_) {}
-    return { ip: "", pais: "", ciudad: "" };
-  }
-
-  async function capturarLead(): Promise<void> {
+  function capturarLead(): void {
     const { os, navegador, dispositivo } = parseUserAgent();
     const utms = getUTMs();
-    const geo = await getGeoIP();
 
     const payload: LeadPayload = {
       timestamp: new Date().toISOString(),
@@ -91,30 +71,37 @@
       idioma: navigator.language ?? "",
       tipo: dispositivo,
       ...utms,
-      ...geo,
     };
 
-    const blob = new Blob([JSON.stringify(payload)], { type: "text/plain" });
-    navigator.sendBeacon(APPS_SCRIPT_URL, blob);
+    const body = JSON.stringify(payload);
+    const blob = new Blob([body], { type: "application/json" });
+    const sentByBeacon = navigator.sendBeacon(APPS_SCRIPT_URL, blob);
+
+    if (!sentByBeacon) {
+      fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body,
+        keepalive: true,
+      }).catch(() => {});
+    }
   }
 
   function init(): void {
-    const selector = 'a[href*="wa.me"], a[href*="api.whatsapp.com"]';
+    const selector =
+      'a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="whatsapp.com"], a[href*="wa.link"]';
 
     document.querySelectorAll<HTMLAnchorElement>(selector).forEach((btn) => {
-      btn.addEventListener("click", () => {
-        capturarLead();
-      });
+      if (btn.dataset.leadTracked) return;
+      btn.dataset.leadTracked = "1";
+      btn.addEventListener("click", capturarLead, { passive: true });
     });
 
     const observer = new MutationObserver(() => {
       document.querySelectorAll<HTMLAnchorElement>(selector).forEach((btn) => {
-        if (!btn.dataset.leadTracked) {
-          btn.dataset.leadTracked = "1";
-          btn.addEventListener("click", () => {
-            capturarLead();
-          });
-        }
+        if (btn.dataset.leadTracked) return;
+        btn.dataset.leadTracked = "1";
+        btn.addEventListener("click", capturarLead, { passive: true });
       });
     });
 
