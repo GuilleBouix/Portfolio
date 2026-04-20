@@ -1,6 +1,5 @@
 (function () {
-  const APPS_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbwwQYjhrF2Ydx8-McQn_4oS4BFFmVUUEi6WrnvhcEd5zmttgHX-6i_9jaRZh02Maqo6/exec";
+  const APPS_SCRIPT_URL = "/api/track";
 
   interface UTMs {
     utm_source: string;
