@@ -16,6 +16,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: "https://guillebouix.vercel.app",
+  trailingSlash: "never",
   integrations: [sitemap()],
   output: "static",
   adapter: vercel(),
