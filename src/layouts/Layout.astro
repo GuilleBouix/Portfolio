@@ -4,8 +4,10 @@ import WhatsAppButton from '../components/WhatsAppButton.astro';
 
 const siteUrl = 'https://guillebouix.vercel.app';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
-const title = 'Guille Bouix | Portafolio';
-const description = 'Analista programador y desarrollador de software especializado en backend y frontend, optimización web y desarrollo de aplicaciones eficientes y seguras.';
+const {
+  title = 'Guille Bouix | Portafolio',
+  description = 'Desarrollador web especializado en crear soluciones digitales rápidas, eficientes y seguras. Portfolio de proyectos en Python, React, Astro y C#.'
+} = Astro.props;
 
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 ---
