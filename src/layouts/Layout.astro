@@ -3,6 +3,7 @@ import '../styles/global.css';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 
 const siteUrl = 'https://guillebouix.vercel.app';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 const title = 'Guille Bouix | Portafolio';
 const description = 'Analista programador y desarrollador de software especializado en backend y frontend, optimización web y desarrollo de aplicaciones eficientes y seguras.';
 
@@ -22,20 +23,20 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 		<meta name="keywords" content="desarrollador web, desarrollador de software, programación, software, python, c#, javascript, analista programador" />
 		<meta name="author" content="Guillermo Daniel Bouix" />
 		<meta name="robots" content="index, follow" />
-		<link rel="canonical" href={siteUrl} />
-		<link rel="alternate" hreflang="es" href={siteUrl} />
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="alternate" hreflang="es" href={canonicalUrl} />
 
 		<!-- Open Graph -->
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description}/>
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content={siteUrl} />
+		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:image" content="/img/opengraph/image-opengraph.jpg" />
 		<meta property="og:site_name" content="Guille Bouix Portafolio" />
 
 		<!-- Twitter / X -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:url" content={siteUrl} />
+		<meta name="twitter:url" content={canonicalUrl} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content="/img/opengraph/x-opengraph.jpg"/>
 		
