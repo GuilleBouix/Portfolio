@@ -6,15 +6,25 @@ import ProjectPage from "../../components/Projects/ProjectPage.astro";
 import Gallery from "../../components/Projects/Gallery.astro";
 import FeaturesCard from "../../components/Projects/FeaturesCard.astro";
 
+import banner from "../../assets/projects/training-plus.webp";
+import img1 from "../../assets/projects/trainingplus/1.webp";
+import img2 from "../../assets/projects/trainingplus/2.webp";
+import img3 from "../../assets/projects/trainingplus/3.webp";
+import img4 from "../../assets/projects/trainingplus/4.webp";
+import img5 from "../../assets/projects/trainingplus/5.webp";
+import img6 from "../../assets/projects/trainingplus/6.webp";
+import img7 from "../../assets/projects/trainingplus/7.webp";
+import img8 from "../../assets/projects/trainingplus/8.webp";
+
 const myImages = [
-  { src: "/img/projects/trainingplus/1.webp", alt: "Primera imagen" },
-  { src: "/img/projects/trainingplus/2.webp", alt: "Segunda imagen" },
-  { src: "/img/projects/trainingplus/3.webp", alt: "Tercera imagen" },
-  { src: "/img/projects/trainingplus/4.webp", alt: "Cuarta imagen" },
-  { src: "/img/projects/trainingplus/5.webp", alt: "Quinta imagen" },
-  { src: "/img/projects/trainingplus/6.webp", alt: "Sexta imagen" },
-  { src: "/img/projects/trainingplus/7.webp", alt: "Séptima imagen" },
-  { src: "/img/projects/trainingplus/8.webp", alt: "Octava imagen" }
+  { src: img1, alt: "Primera imagen" },
+  { src: img2, alt: "Segunda imagen" },
+  { src: img3, alt: "Tercera imagen" },
+  { src: img4, alt: "Cuarta imagen" },
+  { src: img5, alt: "Quinta imagen" },
+  { src: img6, alt: "Sexta imagen" },
+  { src: img7, alt: "Séptima imagen" },
+  { src: img8, alt: "Octava imagen" }
 ]
 ---
 
@@ -31,7 +41,7 @@ const myImages = [
       title="Training Plus"
       subtitle="Sistema de Gestión y Seguimiento de Entrenamientos Personalizados"
       categories={["Full-Stack", "Proyecto Final"]}
-      banner="/img/projects/training-plus.webp"
+      banner={banner}
       description="Plataforma que conecta entrenadores y alumnos: gestión de rutinas personalizadas, registro de progreso con métricas en tiempo real y seguimiento del rendimiento por ambas partes. Proyecto final de tesis para la carrera de Analista Programador (2025), con relevamiento de objetivos y modelado de datos previo al desarrollo."
       githubUrl="https://github.com/GuilleBouix/TrainingPlus-Tesis"
       tech={["Python", "Flask", "JavaScript", "HTML", "CSS", "SQLite"]}

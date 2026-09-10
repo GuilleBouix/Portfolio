@@ -7,11 +7,17 @@ import ProjectPage from "../../components/Projects/ProjectPage.astro";
 import Gallery from "../../components/Projects/Gallery.astro";
 import FeaturesCard from "../../components/Projects/FeaturesCard.astro";
 
+import banner from "../../assets/projects/finence.webp";
+import img1 from "../../assets/projects/finence/1.webp";
+import img2 from "../../assets/projects/finence/2.webp";
+import img3 from "../../assets/projects/finence/3.webp";
+import img4 from "../../assets/projects/finence/4.webp";
+
 const myImages = [
-  { src: "/img/projects/finence/1.webp", alt: "Primera captura" },
-  { src: "/img/projects/finence/2.webp", alt: "Segunda captura" },
-  { src: "/img/projects/finence/3.webp", alt: "Tercera captura" },
-  { src: "/img/projects/finence/4.webp", alt: "Cuarta captura" }
+  { src: img1, alt: "Primera captura" },
+  { src: img2, alt: "Segunda captura" },
+  { src: img3, alt: "Tercera captura" },
+  { src: img4, alt: "Cuarta captura" }
 ]
 ---
 
@@ -28,7 +34,7 @@ const myImages = [
       title="Finence"
       subtitle="Control de finanzas personales"
       categories={["Full-Stack"]}
-      banner="/img/projects/finence.webp"
+      banner={banner}
       description="Registro de ingresos y gastos, historial de transacciones y visualización de balances mediante gráficos interactivos en tiempo real. Desarrollado para trabajar en profundidad Supabase, PostgreSQL, autenticación y manejo de estado con React y Zustand."
       githubUrl="https://github.com/GuilleBouix/Finence"
       tech={["React", "Vite", "TypeScript", "Zustand", "Tailwind CSS", "Supabase"]}

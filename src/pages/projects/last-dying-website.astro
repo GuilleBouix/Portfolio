@@ -6,11 +6,17 @@ import ProjectPage from "../../components/Projects/ProjectPage.astro";
 import Gallery from "../../components/Projects/Gallery.astro";
 import FeaturesCard from "../../components/Projects/FeaturesCard.astro";
 
+import banner from "../../assets/projects/last-dying.webp";
+import img1 from "../../assets/projects/lastdying/1.webp";
+import img2 from "../../assets/projects/lastdying/2.webp";
+import img3 from "../../assets/projects/lastdying/3.webp";
+import img4 from "../../assets/projects/lastdying/4.webp";
+
 const myImages = [
-  { src: "/img/projects/lastdying/1.webp", alt: "Primera captura" },
-  { src: "/img/projects/lastdying/2.webp", alt: "Segunda captura" },
-  { src: "/img/projects/lastdying/3.webp", alt: "Tercera captura" },
-  { src: "/img/projects/lastdying/4.webp", alt: "Cuarta captura" },
+  { src: img1, alt: "Primera captura" },
+  { src: img2, alt: "Segunda captura" },
+  { src: img3, alt: "Tercera captura" },
+  { src: img4, alt: "Cuarta captura" },
 ]
 ---
 
@@ -27,7 +33,7 @@ const myImages = [
       title="Last Dying"
       subtitle="Sitio Web Oficial"
       categories={["Frontend"]}
-      banner="/img/projects/last-dying.webp"
+      banner={banner}
       description="Sitio oficial de mi proyecto musical solista: último lanzamiento, discografía completa con previews, enlaces de compra externos, biografía y contacto. Desarrollado para centralizar la presencia online del proyecto y darle mayor visibilidad. Pendiente de publicación."
       tech={["Astro", "JavaScript", "Tailwind CSS"]}
     >

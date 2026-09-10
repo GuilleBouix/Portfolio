@@ -7,11 +7,17 @@ import ProjectPage from "../../components/Projects/ProjectPage.astro";
 import Gallery from "../../components/Projects/Gallery.astro";
 import FeaturesCard from "../../components/Projects/FeaturesCard.astro";
 
+import banner from "../../assets/projects/janus.webp";
+import img1 from "../../assets/projects/janus/1.webp";
+import img2 from "../../assets/projects/janus/2.webp";
+import img3 from "../../assets/projects/janus/3.webp";
+import img4 from "../../assets/projects/janus/4.webp";
+
 const myImages = [
-  { src: "/img/projects/janus/1.webp", alt: "Primera captura" },
-  { src: "/img/projects/janus/2.webp", alt: "Segunda captura" },
-  { src: "/img/projects/janus/3.webp", alt: "Tercera captura" },
-  { src: "/img/projects/janus/4.webp", alt: "Cuarta captura" },
+  { src: img1, alt: "Primera captura" },
+  { src: img2, alt: "Segunda captura" },
+  { src: img3, alt: "Tercera captura" },
+  { src: img4, alt: "Cuarta captura" },
 ]
 ---
 
@@ -28,7 +34,7 @@ const myImages = [
       title="JANUS Agency"
       subtitle="Sitio corporativo para una agencia de SEO"
       categories={["Frontend", "SEO", "En producción"]}
-      banner="/img/projects/janus.webp"
+      banner={banner}
       description="Sitio corporativo para JANUS Agency, una agencia de SEO y posicionamiento digital que antes no tenía presencia web propia. Diseñé y desarrollé la arquitectura de contenidos, la interfaz y la implementación completa con foco en rendimiento, claridad comercial y SEO desde la base. El proyecto está en producción desde esta semana."
       siteUrl="https://janusmarketing.agency"
       tech={["Astro", "TypeScript", "Tailwind CSS", "SEO"]}

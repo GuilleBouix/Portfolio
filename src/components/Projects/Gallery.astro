@@ -1,6 +1,15 @@
 ---
+import { getImage } from 'astro:assets';
+
 const { images } = Astro.props;
-const imagesJson = JSON.stringify(images);
+
+const resolvedImages = await Promise.all(
+  images.map(async ({ src, alt }: { src: ImageMetadata; alt: string }) => ({
+    src: (await getImage({ src, width: 1200 })).src,
+    alt,
+  }))
+);
+const imagesJson = JSON.stringify(resolvedImages);
 ---
 
 <div class="gallery-container max-w-4xl mx-auto" data-gallery-images={imagesJson}>
@@ -9,8 +18,8 @@ const imagesJson = JSON.stringify(images);
     <img
       loading="lazy"
       id="gallery-image"
-      src={images[0].src}
-      alt={images[0].alt}
+      src={resolvedImages[0].src}
+      alt={resolvedImages[0].alt}
       class="w-full h-full object-contain"
     />
     

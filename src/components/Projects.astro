@@ -1,5 +1,13 @@
 ---
 import ProjectCard from './Projects/ProjectCard.astro';
+import janusImg from '../assets/projects/janus.webp';
+import yaguaImg from '../assets/projects/yagua.webp';
+import beardcutImg from '../assets/projects/beardcut.webp';
+import trainingPlusImg from '../assets/projects/training-plus.webp';
+import finenceImg from '../assets/projects/finence.webp';
+import sistemaGcaImg from '../assets/projects/sistema-gca.webp';
+import textlyChatImg from '../assets/projects/textly-chat.webp';
+import lastDyingImg from '../assets/projects/last-dying.webp';
 ---
 
 <section id="projects">
@@ -14,7 +22,7 @@ import ProjectCard from './Projects/ProjectCard.astro';
             title="JANUS Agency"
             type="Frontend"
             description="Sitio corporativo para JANUS Agency, agencia de SEO y posicionamiento digital. Arquitectura de contenidos, diseño e implementación completa, con foco en rendimiento y SEO desde la base."
-            image="/img/projects/janus.webp"
+            image={janusImg}
             tech={["Astro", "TypeScript", "Tailwind CSS", "SEO"]}
             link="/projects/janus-website"
             siteUrl="https://janusmarketing.agency"
@@ -24,7 +32,7 @@ import ProjectCard from './Projects/ProjectCard.astro';
             title="Yagua"
             type="Desktop App"
             description="Aplicación de escritorio open source para procesar imágenes en lote: compresión, conversión de formatos, eliminación de fondo con IA y extracción de paletas de color."
-            image="/img/projects/yagua.webp"
+            image={yaguaImg}
             tech={["Python", "CustomTkinter", "Pillow", "rembg", "piexif", "Pytest"]}
             link="/projects/yagua-image-processor"
             githubUrl="https://github.com/GuilleBouix/Yagua-Image-Processor"
@@ -34,7 +42,7 @@ import ProjectCard from './Projects/ProjectCard.astro';
             title="BeardCut"
             type="Full-Stack"
             description="Landing pública con reserva de turnos y panel de administración en Flask para gestionar horarios, reservas y servicios de una barbería."
-            image="/img/projects/beardcut.webp"
+            image={beardcutImg}
             tech={["Astro", "JavaScript", "HTML", "Tailwind CSS", "Python", "Flask", "PostgreSQL"]}
             link="/projects/beardcut"
         />
@@ -43,7 +51,7 @@ import ProjectCard from './Projects/ProjectCard.astro';
             title="Training Plus"
             type="Full-Stack"
             description="Plataforma para conectar entrenadores y alumnos: rutinas personalizadas, seguimiento de progreso y métricas en tiempo real."
-            image="/img/projects/training-plus.webp"
+            image={trainingPlusImg}
             tech={["Python", "Flask", "JavaScript", "HTML", "CSS", "SQLite"]}
             link="/projects/training-plus"
             githubUrl="https://github.com/GuilleBouix/TrainingPlus-Tesis"
@@ -53,7 +61,7 @@ import ProjectCard from './Projects/ProjectCard.astro';
             title="Finence"
             type="Full-Stack"
             description="Registro de ingresos y gastos, historial de transacciones y balances visuales en tiempo real. Proyecto para profundizar React, Supabase y manejo de estado."
-            image="/img/projects/finence.webp"
+            image={finenceImg}
             tech={["React", "Vite", "TypeScript", "Zustand", "Tailwind CSS", "Supabase"]}
             link="/projects/finence"
             githubUrl="https://github.com/GuilleBouix/Finence"
@@ -63,7 +71,7 @@ import ProjectCard from './Projects/ProjectCard.astro';
             title="Sistema GCA"
             type="Desktop App"
             description="Sistema de escritorio para control de asistencia de personal: ingresos, egresos, horas trabajadas y reportes."
-            image="/img/projects/sistema-gca.webp"
+            image={sistemaGcaImg}
             tech={["C#", "WinForms", "SQLite"]}
             link="/projects/sistema-gca"
             githubUrl="https://github.com/GuilleBouix/Sistema-GCA"
@@ -73,7 +81,7 @@ import ProjectCard from './Projects/ProjectCard.astro';
             title="Textly Chat"
             type="Full-Stack"
             description="Chat privado en tiempo real entre dos usuarios, con traducción instantánea y asistencia de IA para mejorar la redacción."
-            image="/img/projects/textly-chat.webp"
+            image={textlyChatImg}
             tech={["Next.js", "React", "TypeScript", "Tailwind CSS", "Gemini Flash API"]}
             link="/projects/textly-chat"
         />
@@ -82,7 +90,7 @@ import ProjectCard from './Projects/ProjectCard.astro';
             title="Last Dying Website"
             type="Frontend"
             description="Sitio oficial de un proyecto musical solista: lanzamientos, discografía, biografía y contacto. Enfoque en rendimiento y SEO."
-            image="/img/projects/last-dying.webp"
+            image={lastDyingImg}
             tech={["Astro", "JavaScript", "HTML", "Tailwind CSS"]}
             link="/projects/last-dying-website"
         />

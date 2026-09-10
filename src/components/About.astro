@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import Social from './About/Social.astro';
 import EmailSocial from './About/EmailSocial.astro';
+import profileImg from '../assets/profile.webp';
 ---
 
 <section id="about">
@@ -33,13 +35,13 @@ import EmailSocial from './About/EmailSocial.astro';
             data-aos-delay="250" 
             class="glitch-container group relative hidden sm:block mr-4 w-48 aspect-square overflow-hidden rounded border border-[#30363D] transition"
         >
-            <img
-                loading="lazy" 
-                width="192" 
-                height="192" 
-                src="/img/profile.webp" 
-                alt="Foto de perfil de Guillermo Bouix" 
-                class="w-full h-full object-cover object-top" 
+            <Image
+                loading="eager"
+                width={192}
+                height={192}
+                src={profileImg}
+                alt="Foto de perfil de Guillermo Bouix"
+                class="w-full h-full object-cover object-top"
             />
         </div>
     </div>

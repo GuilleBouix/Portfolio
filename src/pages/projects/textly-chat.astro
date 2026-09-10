@@ -6,13 +6,21 @@ import ProjectPage from "../../components/Projects/ProjectPage.astro";
 import Gallery from "../../components/Projects/Gallery.astro";
 import FeaturesCard from "../../components/Projects/FeaturesCard.astro";
 
+import banner from "../../assets/projects/textly-chat.webp";
+import img1 from "../../assets/projects/textly-chat/1.webp";
+import img2 from "../../assets/projects/textly-chat/2.webp";
+import img3 from "../../assets/projects/textly-chat/3.webp";
+import img4 from "../../assets/projects/textly-chat/4.webp";
+import img5 from "../../assets/projects/textly-chat/5.webp";
+import img6 from "../../assets/projects/textly-chat/6.webp";
+
 const myImages = [
-  { src: "/img/projects/textly-chat/1.webp", alt: "Captura 1" },
-  { src: "/img/projects/textly-chat/2.webp", alt: "Captura 2" },
-  { src: "/img/projects/textly-chat/3.webp", alt: "Captura 3" },
-  { src: "/img/projects/textly-chat/4.webp", alt: "Captura 4" },
-  { src: "/img/projects/textly-chat/5.webp", alt: "Captura 5" },
-  { src: "/img/projects/textly-chat/6.webp", alt: "Captura 6" }
+  { src: img1, alt: "Captura 1" },
+  { src: img2, alt: "Captura 2" },
+  { src: img3, alt: "Captura 3" },
+  { src: img4, alt: "Captura 4" },
+  { src: img5, alt: "Captura 5" },
+  { src: img6, alt: "Captura 6" }
 ]
 ---
 
@@ -29,7 +37,7 @@ const myImages = [
       title="Textly Chat"
       subtitle="Chat privado por salas con asistencia de IA integrada"
       categories={["Full-Stack"]}
-      banner="/img/projects/textly-chat.webp"
+      banner={banner}
       description="Salas privadas en tiempo real entre dos usuarios, con traducción instantánea integrada y asistencia de IA para mejorar la redacción de los mensajes. Primera implementación de IA integrada a un producto real, más allá de un chatbot aislado."
       tech={["Next.js", "React", "TypeScript", "Tailwind CSS", "Gemini Flash API"]}
     >

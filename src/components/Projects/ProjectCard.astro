@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 const {
   title,
   type,
@@ -25,7 +27,7 @@ const badgeLabel = githubUrl ? "Ver repositorio en GitHub" : "Ver sitio en produ
   )}
 
   <div class="w-full aspect-3/2 bg-surface border-b border-surface-low flex items-center justify-center p-4">
-    <img src={image} alt={title} class={`object-contain select-none ${logoSize === "sm" ? "w-16" : ""} ${logoSize === "md" ? "w-24" : ""} ${logoSize === "lg" ? "w-32" : ""} ${logoSize === "xl" ? "w-40" : ""} ${logoSize === "2xl" ? "w-48" : ""}`} />
+    <Image src={image} alt={title} width={400} height={300} class={`object-contain select-none ${logoSize === "sm" ? "w-16" : ""} ${logoSize === "md" ? "w-24" : ""} ${logoSize === "lg" ? "w-32" : ""} ${logoSize === "xl" ? "w-40" : ""} ${logoSize === "2xl" ? "w-48" : ""}`} />
   </div>
 
   <div class="p-4 flex flex-col gap-3">

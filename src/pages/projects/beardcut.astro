@@ -7,15 +7,25 @@ import ProjectPage from "../../components/Projects/ProjectPage.astro";
 import Gallery from "../../components/Projects/Gallery.astro";
 import FeaturesCard from "../../components/Projects/FeaturesCard.astro";
 
+import banner from "../../assets/projects/beardcut.webp";
+import img1 from "../../assets/projects/beardcut/1.webp";
+import img2 from "../../assets/projects/beardcut/2.webp";
+import img3 from "../../assets/projects/beardcut/3.webp";
+import img4 from "../../assets/projects/beardcut/4.webp";
+import img5 from "../../assets/projects/beardcut/5.webp";
+import img6 from "../../assets/projects/beardcut/6.webp";
+import img7 from "../../assets/projects/beardcut/7.webp";
+import img8 from "../../assets/projects/beardcut/8.webp";
+
 const myImages = [
-  { src: "/img/projects/beardcut/1.webp", alt: "Primera captura" },
-  { src: "/img/projects/beardcut/2.webp", alt: "Segunda captura" },
-  { src: "/img/projects/beardcut/3.webp", alt: "Tercera captura" },
-  { src: "/img/projects/beardcut/4.webp", alt: "Cuarta captura" },
-  { src: "/img/projects/beardcut/5.webp", alt: "Quinta captura" },
-  { src: "/img/projects/beardcut/6.webp", alt: "Sexta captura" },
-  { src: "/img/projects/beardcut/7.webp", alt: "Séptima captura" },
-  { src: "/img/projects/beardcut/8.webp", alt: "Octava captura" }
+  { src: img1, alt: "Primera captura" },
+  { src: img2, alt: "Segunda captura" },
+  { src: img3, alt: "Tercera captura" },
+  { src: img4, alt: "Cuarta captura" },
+  { src: img5, alt: "Quinta captura" },
+  { src: img6, alt: "Sexta captura" },
+  { src: img7, alt: "Séptima captura" },
+  { src: img8, alt: "Octava captura" }
 ]
 ---
 
@@ -32,7 +42,7 @@ const myImages = [
       title="BeardCut"
       subtitle="Sistema de turnos para barbería"
       categories={["Full-Stack"]}
-      banner="/img/projects/beardcut.webp"
+      banner={banner}
       description="Landing pública con reserva de turnos según disponibilidad configurada por el negocio, más panel de administración en Flask para gestionar, completar o cancelar reservas. Desarrollado sobre el rubro de barbería/peluquería, un sector en crecimiento con demanda real de digitalización de turnos."
       tech={["Astro", "JavaScript", "HTML", "Tailwind CSS", "Python", "Flask", "PostgreSQL"]}
     >

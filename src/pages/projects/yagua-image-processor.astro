@@ -6,15 +6,25 @@ import ProjectPage from "../../components/Projects/ProjectPage.astro";
 import Gallery from "../../components/Projects/Gallery.astro";
 import FeaturesCard from "../../components/Projects/FeaturesCard.astro";
 
+import banner from "../../assets/projects/yagua.webp";
+import img1 from "../../assets/projects/yagua/1.webp";
+import img2 from "../../assets/projects/yagua/2.webp";
+import img3 from "../../assets/projects/yagua/3.webp";
+import img4 from "../../assets/projects/yagua/4.webp";
+import img5 from "../../assets/projects/yagua/5.webp";
+import img6 from "../../assets/projects/yagua/6.webp";
+import img7 from "../../assets/projects/yagua/7.webp";
+import img8 from "../../assets/projects/yagua/8.webp";
+
 const myImages = [
-  { src: "/img/projects/yagua/1.webp", alt: "Captura 1" },
-  { src: "/img/projects/yagua/2.webp", alt: "Captura 2" },
-  { src: "/img/projects/yagua/3.webp", alt: "Captura 3" },
-  { src: "/img/projects/yagua/4.webp", alt: "Captura 4" },
-  { src: "/img/projects/yagua/5.webp", alt: "Captura 5" },
-  { src: "/img/projects/yagua/6.webp", alt: "Captura 6" },
-  { src: "/img/projects/yagua/7.webp", alt: "Captura 7" },
-  { src: "/img/projects/yagua/8.webp", alt: "Captura 8" }
+  { src: img1, alt: "Captura 1" },
+  { src: img2, alt: "Captura 2" },
+  { src: img3, alt: "Captura 3" },
+  { src: img4, alt: "Captura 4" },
+  { src: img5, alt: "Captura 5" },
+  { src: img6, alt: "Captura 6" },
+  { src: img7, alt: "Captura 7" },
+  { src: img8, alt: "Captura 8" }
 ]
 ---
 
@@ -31,7 +41,7 @@ const myImages = [
       title="Yagua Image Processor"
       subtitle="Software open-source de procesamiento de imágenes"
       categories={["Desktop App", "Open Source"]}
-      banner="/img/projects/yagua.webp"
+      banner={banner}
       description="Aplicación de escritorio para procesamiento inteligente de imágenes en lote: comprime, convierte formatos, elimina fondos con IA y extrae paletas de color desde una interfaz rápida. Corre local, sin límites de uso ni dependencia de conexión."
       githubUrl="https://github.com/GuilleBouix/Yagua-Image-Processor"
       tech={["Python", "CustomTkinter", "Pillow", "rembg", "piexif", "Pytest"]}
