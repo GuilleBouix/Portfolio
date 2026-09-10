@@ -1,1 +1,1 @@
-<img width="1345" height="627" alt="image" src="https://github.com/user-attachments/assets/09d21b99-21f8-49f0-b1b6-9a6c1088f226" />
+<img width="1345" height="4860" alt="guille bouix full portfolio" src="https://github.com/user-attachments/assets/51a6e31d-10ed-46e3-a856-3643f022122a" />
