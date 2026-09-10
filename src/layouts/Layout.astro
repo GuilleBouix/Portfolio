@@ -5,8 +5,8 @@ import WhatsAppButton from '../components/WhatsAppButton.astro';
 const siteUrl = 'https://guillebouix.vercel.app';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 const {
-  title = 'Guille Bouix — Desarrollador Web | Portafolio',
-  description = 'Desarrollador web especializado en crear soluciones digitales rápidas, eficientes y seguras. Portfolio de proyectos en Python, React, Astro y C#.'
+  title = 'Guille Bouix — Desarrollador y Analista Programador | Portfolio',
+  description = 'Desarrollador y analista programador enfocado en software a medida, modernización de procesos y acompañamiento evolutivo para negocios que necesitan soluciones claras y funcionales.'
 } = Astro.props;
 
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
@@ -22,8 +22,9 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 		<!-- SEO Básico -->
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<meta name="keywords" content="desarrollador web, desarrollador de software, programación, software, python, c#, javascript, analista programador" />
+		<meta name="keywords" content="desarrollador y analista programador, software a medida, modernización de procesos, automatización, acompañamiento evolutivo, desarrollo web, SEO técnico" />
 		<meta name="author" content="Guillermo Daniel Bouix" />
+		<meta name="theme-color" content="#111317" />
 		<meta name="robots" content="index, follow" />
 		<link rel="canonical" href={canonicalUrl} />
 		<link rel="alternate" hreflang="es" href={canonicalUrl} />
@@ -112,7 +113,7 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 				"@context": "https://schema.org",
 				"@type": "Person",
 				"name": "Guillermo Daniel Bouix",
-				"jobTitle": "Desarrollador Web y Analista Programador",
+				"jobTitle": "Desarrollador Full-Stack",
 				"url": "https://guillebouix.vercel.app",
 				"sameAs": [
 					"https://www.linkedin.com/in/guillermo-bouix",

@@ -5,15 +5,13 @@ const imagesJson = JSON.stringify(images);
 
 <div class="gallery-container max-w-4xl mx-auto" data-gallery-images={imagesJson}>
   <!-- Imagen principal -->
-  <div id="gallery-wrapper" class="relative overflow-hidden shadow-lg rounded border border-border bg-surface" style="aspect-ratio: 16/9;">
+  <div id="gallery-wrapper" class="relative overflow-hidden shadow-lg rounded border border-border bg-surface aspect-video max-h-[70vh]">
     <img
       loading="lazy"
       id="gallery-image"
       src={images[0].src}
       alt={images[0].alt}
-      width="800"
-      height="450"
-      class="w-full h-auto object-contain"
+      class="w-full h-full object-contain"
     />
     
     <!-- Botón anterior -->

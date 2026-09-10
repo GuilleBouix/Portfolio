@@ -1,21 +1,26 @@
 ---
-const { 
-  title, 
-  type, 
-  description, 
+const {
+  title,
+  type,
+  description,
   image,
   logoSize = "2xl",
-  tech = [], 
-  link, 
-  github 
+  tech = [],
+  link,
+  githubUrl,
+  siteUrl
 } = Astro.props;
+
+const badgeUrl = githubUrl || siteUrl;
+const badgeIcon = githubUrl ? "/img/icons/github.svg" : "/img/icons/external-link.svg";
+const badgeLabel = githubUrl ? "Ver repositorio en GitHub" : "Ver sitio en producción";
 ---
 
 <article data-aos="zoom-in" data-aos-duration="800" class="relative bg-surface-low border border-border rounded overflow-hidden shadow-lg w-full">
 
-  {github && (
-    <a href={github} target="_blank" class="group absolute top-3 right-3 size-10 rounded-full flex items-center justify-center bg-transparent border border-border hover:bg-white hover:border-white transition cursor-pointer">
-      <div class="size-5 bg-white mask-center mask-no-repeat mask-contain group-hover:invert transition" style={`mask-image: url(/img/icons/github.svg); -webkit-mask-image: url(/img/icons/github.svg);`}></div>
+  {badgeUrl && (
+    <a href={badgeUrl} target="_blank" rel="noopener noreferrer" aria-label={badgeLabel} class="group absolute top-3 right-3 size-10 rounded-full flex items-center justify-center bg-transparent border border-border hover:bg-white hover:border-white transition cursor-pointer">
+      <div class="size-5 bg-white mask-center mask-no-repeat mask-contain group-hover:invert transition" style={`mask-image: url(${badgeIcon}); -webkit-mask-image: url(${badgeIcon});`}></div>
     </a>
   )}
 

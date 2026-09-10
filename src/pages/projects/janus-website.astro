@@ -1,0 +1,56 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+import ProjectPage from "../../components/Projects/ProjectPage.astro";
+import Gallery from "../../components/Projects/Gallery.astro";
+import FeaturesCard from "../../components/Projects/FeaturesCard.astro";
+
+const myImages = [
+  { src: "/img/projects/janus/1.webp", alt: "Primera captura" },
+  { src: "/img/projects/janus/2.webp", alt: "Segunda captura" },
+  { src: "/img/projects/janus/3.webp", alt: "Tercera captura" },
+  { src: "/img/projects/janus/4.webp", alt: "Cuarta captura" },
+]
+---
+
+<Layout
+  title="JANUS Agency — Sitio corporativo para agencia SEO | Guille Bouix"
+  description="Sitio corporativo para JANUS Agency, agencia de SEO y posicionamiento digital. Arquitectura de contenidos, diseño e implementación completa. En producción."
+>
+  <header>
+    <Navbar />
+  </header>
+
+  <main id="content">
+    <ProjectPage
+      title="JANUS Agency"
+      subtitle="Sitio corporativo para una agencia de SEO"
+      categories={["Frontend", "SEO", "En producción"]}
+      banner="/img/projects/janus.webp"
+      description="Sitio corporativo para JANUS Agency, una agencia de SEO y posicionamiento digital que antes no tenía presencia web propia. Diseñé y desarrollé la arquitectura de contenidos, la interfaz y la implementación completa con foco en rendimiento, claridad comercial y SEO desde la base. El proyecto está en producción desde esta semana."
+      siteUrl="https://janusmarketing.agency"
+      tech={["Astro", "TypeScript", "Tailwind CSS", "SEO"]}
+    >
+
+      <!-- Gallery -->
+      <div slot="gallery">
+        <Gallery images={myImages} />
+      </div>
+
+      <!-- Features -->
+      <ul slot="features" class="list-disc list-inside space-y-3 mt-2">
+        <FeaturesCard title="Arquitectura orientada a SEO" description="Estructura de contenidos organizada para servicios, sectores y recursos." />
+        <FeaturesCard title="Diseño orientado a conversión" description="Jerarquía visual y llamadas a la acción hacia el contacto y el diagnóstico." />
+        <FeaturesCard title="Servicios y sectores" description="Contenido reutilizable para escalar nuevas páginas sin duplicar lógica." />
+        <FeaturesCard title="Casos de éxito" description="Sección preparada para mostrar resultados y estrategias aplicadas." />
+        <FeaturesCard title="Rendimiento y experiencia" description="Implementación enfocada en rendimiento, HTML semántico y responsive design." />
+        <FeaturesCard title="Código escalable" description="Arquitectura de componentes lista para crecer sin romper la base." />
+      </ul>
+
+    </ProjectPage>
+  </main>
+
+  <Footer />
+</Layout>
