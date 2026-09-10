@@ -15,10 +15,12 @@
     "@lucide/astro": "^1.7.0",
     "@tailwindcss/vite": "^4.1.17",
     "@types/alpinejs": "^3.13.11",
+    "aos": "^2.3.4",
     "astro": "^7.3.1",
     "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.8",
     "sharp": "^0.35.4"
   }
 }
