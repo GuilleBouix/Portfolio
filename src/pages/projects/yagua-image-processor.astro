@@ -15,16 +15,24 @@ import img5 from "../../assets/projects/yagua/5.webp";
 import img6 from "../../assets/projects/yagua/6.webp";
 import img7 from "../../assets/projects/yagua/7.webp";
 import img8 from "../../assets/projects/yagua/8.webp";
+import img9 from "../../assets/projects/yagua/9.webp";
+import img10 from "../../assets/projects/yagua/10.webp";
+import img11 from "../../assets/projects/yagua/11.webp";
+import img12 from "../../assets/projects/yagua/12.webp";
 
 const myImages = [
-  { src: img1, alt: "Captura 1" },
-  { src: img2, alt: "Captura 2" },
-  { src: img3, alt: "Captura 3" },
-  { src: img4, alt: "Captura 4" },
-  { src: img5, alt: "Captura 5" },
-  { src: img6, alt: "Captura 6" },
-  { src: img7, alt: "Captura 7" },
-  { src: img8, alt: "Captura 8" }
+  { src: img1, alt: "Pantalla de inicio de Yagua con sus herramientas disponibles" },
+  { src: img2, alt: "Herramienta Convert con archivos cargados y opciones de formato" },
+  { src: img3, alt: "Herramienta Compress con ajuste de calidad" },
+  { src: img4, alt: "Herramienta Resize con opciones para cambiar tamaño y recortar" },
+  { src: img5, alt: "Herramienta Remove Background" },
+  { src: img6, alt: "Herramienta Color Palette con colores extraídos de una imagen" },
+  { src: img7, alt: "Herramienta Watermark con vista previa de marca de agua" },
+  { src: img8, alt: "Herramienta Batch Rename con vista previa de nombres" },
+  { src: img9, alt: "Herramienta Extract Text con resultado OCR" },
+  { src: img10, alt: "Herramienta EXIF Metadata con información de una imagen" },
+  { src: img11, alt: "Herramienta LQIP y Base64 con vista previa de resultado" },
+  { src: img12, alt: "Configuración de idioma, tema, escala y módulos visibles" }
 ]
 ---
 
@@ -42,9 +50,10 @@ const myImages = [
       subtitle="Software open-source de procesamiento de imágenes"
       categories={["Desktop App", "Open Source"]}
       banner={banner}
-      description="Aplicación de escritorio para procesamiento inteligente de imágenes en lote: comprime, convierte formatos, elimina fondos con IA y extrae paletas de color desde una interfaz rápida. Corre local, sin límites de uso ni dependencia de conexión."
+      description="Aplicación de escritorio gratuita y de código abierto para convertir, comprimir y procesar imágenes por lotes. Incluye herramientas para redimensionar, recortar, eliminar fondos con IA, extraer texto con OCR y gestionar metadatos. Los archivos se procesan en tu equipo; OCR y Quitar Fondo requieren descargar sus modelos antes del primer uso y los límites por lote varían según la herramienta."
       githubUrl="https://github.com/GuilleBouix/Yagua-Image-Processor"
-      tech={["Python", "CustomTkinter", "Pillow", "rembg", "piexif", "Pytest"]}
+      siteUrl="https://yagua.bouixdev.workers.dev/es/"
+      tech={["Python · CustomTkinter", "Pillow · Pillow-HEIF", "rembg · ONNX Runtime", "EasyOCR · PyTorch", "piexif", "PyInstaller · Inno Setup · AppImage"]}
     >
 
       <!-- Gallery -->
@@ -54,16 +63,16 @@ const myImages = [
 
       <!-- Funcionalidades -->
       <ul slot="features" class="list-disc list-inside space-y-3 mt-2">
-        <FeaturesCard title="Compresión inteligente con control de calidad" description="Reducción de peso con ajuste preciso de calidad de salida." />
-        <FeaturesCard title="Conversión entre múltiples formatos" description="Soporte para PNG, JPG, WebP, AVIF y más." />
-        <FeaturesCard title="Eliminación de fondo con IA" description="Remoción precisa del fondo usando rembg offline." />
-        <FeaturesCard title="Redimensionado, recorte y edición en canvas" description="Herramientas de edición integradas para ajuste visual." />
-        <FeaturesCard title="Extracción automática de paleta de colores" description="Generación de paletas desde imágenes automáticamente." />
-        <FeaturesCard title="Renombrado masivo con vista previa" description="Renombrado en lote con preview antes de aplicar." />
-        <FeaturesCard title="Gestión de metadatos EXIF" description="Visualizar, editar y limpiar metadatos con piexif." />
-        <FeaturesCard title="Generación de LQIP y Base64" description="Creación de placeholders optimizados para web." />
-        <FeaturesCard title="Soporte multi-idioma" description="Disponible en español, inglés y portugués." />
-        <FeaturesCard title="Temas oscuros predefinidos" description="Estética dark theme adaptada al sistema." />
+        <FeaturesCard title="Compresión de imágenes" description="Reduce el peso de una imagen sin cambiar su formato; el resultado depende del archivo y la calidad seleccionada." />
+        <FeaturesCard title="Conversión de formatos" description="Convierte imágenes entre los formatos disponibles según el módulo, los códecs instalados y la plataforma." />
+        <FeaturesCard title="Eliminación de fondo con IA" description="Usa rembg de forma local. El modelo se descarga al usar esta herramienta por primera vez; después puede funcionar sin conexión si está guardado en caché." />
+        <FeaturesCard title="Redimensionado, recorte y canvas" description="Cambia las dimensiones, recorta una imagen o añade espacio alrededor." />
+        <FeaturesCard title="Extracción de paleta de colores" description="Extrae colores de una imagen y copia sus valores HEX, RGB o HSL." />
+        <FeaturesCard title="Renombrado por lotes" description="Previsualiza cambios de nombres con numeración, fecha y opciones de mayúsculas o minúsculas." />
+        <FeaturesCard title="Metadatos EXIF" description="Consulta y exporta metadatos, edita algunos campos o limpia datos en lote." />
+        <FeaturesCard title="OCR para extraer texto" description="Reconoce texto en español o inglés; permite copiarlo o exportarlo como TXT. Admite hasta 10 imágenes por lote." />
+        <FeaturesCard title="LQIP y Base64" description="Genera placeholders de baja calidad o codifica imágenes para usarlas en la web." />
+        <FeaturesCard title="Interfaz configurable" description="El código actual incluye nueve idiomas de interfaz, tema oscuro y escala ajustable. Los idiomas disponibles pueden variar según la versión instalada." />
       </ul>
 
     </ProjectPage>
