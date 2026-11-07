@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Square corners across the site, including Tailwind's rounded utilities. */
+*,
+*::before,
+*::after {
+  border-radius: 0;
+}
+
 /* Custom Fonts */
 @font-face {
   font-family: "Inter";
