@@ -8,7 +8,7 @@
             <div data-aos="zoom-in" data-aos-duration="800" class="flex flex-col">
                 <label for="email" class="sr-only">Correo Electrónico</label>
                 
-                <input type="email" autocomplete="email" name="email" id="email" placeholder="Tu email" required
+                <input type="email" autocomplete="email" name="email" id="email" placeholder="Tu email (para correo)" required
                 class="font-jetbrains bg-surface-low outline-none border border-border rounded text-sm text-white px-4 py-3 focus:border-white transition" />
             </div>
 
@@ -25,9 +25,51 @@
                 <textarea name="message" id="message" placeholder="Escribe tu mensaje..." required class="font-jetbrains bg-surface-low outline-none border border-border rounded text-sm text-white px-4 py-3 resize-none h-30 focus:border-white transition"></textarea>
             </div>
 
-            <button data-aos="zoom-in" data-aos-duration="800" type="submit" class="font-jetbrains w-full mt-2 text-black bg-white border-white rounded py-3 cursor-pointer duration-300 hover:bg-white/80 hover:text-black hover:border-white">
-                Enviar Mensaje
-            </button>
+            <div data-aos="zoom-in" data-aos-duration="800" class="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <button type="submit" class="font-jetbrains w-full min-h-12 px-4 py-3 text-sm text-black bg-white border border-white cursor-pointer transition hover:bg-white/80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+                    Enviar por correo
+                </button>
+                <a id="contact-whatsapp" href="https://wa.me/5493755653522" target="_blank" rel="noopener noreferrer"
+                class="group font-jetbrains inline-flex w-full min-h-12 items-center justify-center gap-2 border border-border bg-interactive px-4 py-3 text-sm text-white transition hover:bg-white hover:text-black hover:border-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+                    <img src="/img/icons/whatsapp.svg" alt="" aria-hidden="true" class="size-4 shrink-0 invert group-hover:invert-0" />
+                    Abrir WhatsApp
+                </a>
+            </div>
         </form>
     </div>
 </section>
+
+<script>
+    const whatsappLink = document.querySelector<HTMLAnchorElement>('#contact-whatsapp');
+    const messageInput = document.querySelector<HTMLTextAreaElement>('#contact #message');
+    const nameInput = document.querySelector<HTMLInputElement>('#contact #name');
+
+    if (whatsappLink && messageInput) {
+        const updateWhatsAppLink = () => {
+            const name = nameInput?.value.trim();
+            const message = messageInput.value.trim();
+            const text = name ? `Hola Guille, soy ${name}.\n\n${message}` : message;
+            whatsappLink.href = `https://wa.me/5493755653522?text=${encodeURIComponent(text)}`;
+        };
+
+        messageInput.addEventListener('input', () => {
+            messageInput.setCustomValidity('');
+            updateWhatsAppLink();
+        });
+        nameInput?.addEventListener('input', updateWhatsAppLink);
+
+        whatsappLink.addEventListener('click', (event) => {
+            if (!messageInput.value.trim()) {
+                event.preventDefault();
+                // An invalid attempt must not trigger the existing lead-click tracker.
+                event.stopImmediatePropagation();
+                messageInput.setCustomValidity('Escribí un mensaje para abrir WhatsApp.');
+                messageInput.reportValidity();
+                return;
+            }
+
+            messageInput.setCustomValidity('');
+            updateWhatsAppLink();
+        }, { capture: true });
+    }
+</script>
