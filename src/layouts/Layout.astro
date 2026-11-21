@@ -2,11 +2,14 @@
 import '../styles/global.css';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 
-const siteUrl = 'https://guillebouix.vercel.app';
+const siteUrl = Astro.site ?? 'https://guillebouix.vercel.app';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const openGraphImage = new URL('/img/opengraph/image-opengraph.jpg', siteUrl).href;
+const twitterImage = new URL('/img/opengraph/x-opengraph.jpg', siteUrl).href;
 const {
   title = 'Guille Bouix — Desarrollador y Analista Programador | Portfolio',
-  description = 'Desarrollador y analista programador enfocado en software a medida, modernización de procesos y acompañamiento evolutivo para negocios que necesitan soluciones claras y funcionales.'
+  description = 'Desarrollador y analista programador enfocado en software a medida, modernización de procesos y acompañamiento evolutivo para negocios que necesitan soluciones claras y funcionales.',
+  noindex = false,
 } = Astro.props;
 
 const gtmId = import.meta.env.PUBLIC_GTM_ID?.trim();
@@ -26,25 +29,30 @@ const analyticsId = gtmId && /^GTM-[A-Z0-9]+$/.test(gtmId) ? gtmId : undefined;
 		<meta name="keywords" content="desarrollador y analista programador, software a medida, modernización de procesos, automatización, acompañamiento evolutivo, desarrollo web, SEO técnico" />
 		<meta name="author" content="Guillermo Daniel Bouix" />
 		<meta name="theme-color" content="#111317" />
-		<meta name="robots" content="index, follow" />
-		<link rel="canonical" href={canonicalUrl} />
-		<link rel="alternate" hreflang="es" href={canonicalUrl} />
-		<link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+		<meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
+		{!noindex && (
+			<>
+				<link rel="canonical" href={canonicalUrl} />
+				<link rel="alternate" hreflang="es" href={canonicalUrl} />
+				<link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 
-		<!-- Open Graph -->
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description}/>
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content={canonicalUrl} />
-		<meta property="og:image" content="/img/opengraph/image-opengraph.jpg" />
-		<meta property="og:site_name" content="Guille Bouix Portafolio" />
+				<!-- Open Graph -->
+				<meta property="og:title" content={title} />
+				<meta property="og:description" content={description} />
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content={canonicalUrl} />
+				<meta property="og:image" content={openGraphImage} />
+				<meta property="og:site_name" content="Guille Bouix Portafolio" />
 
-		<!-- Twitter / X -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:url" content={canonicalUrl} />
-		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content="/img/opengraph/x-opengraph.jpg"/>
-		
+				<!-- Twitter / X -->
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:title" content={title} />
+				<meta name="twitter:url" content={canonicalUrl} />
+				<meta name="twitter:description" content={description} />
+				<meta name="twitter:image" content={twitterImage} />
+			</>
+		)}
+
 		<!-- Favicon (theme-aware) -->
 		<link rel="icon" href="/favicon-dark.svg" id="favicon">
 		<script is:inline>

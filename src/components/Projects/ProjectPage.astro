@@ -35,7 +35,15 @@ const {
   </div>
 
   <div data-aos="fade-in" data-aos-duration="800" data-aos-delay="200" class="h-64 overflow-hidden mb-4 border border-border rounded bg-surface flex items-center justify-center p-8">
-    <Image loading="eager" width={1406} height={1406} alt={`Proyecto ${title}`} src={banner} class="w-full h-full object-contain" />
+    <Image
+      src={banner}
+      alt={`Proyecto ${title}`}
+      width={380}
+      widths={[190, 380, 570, 760]}
+      sizes="(max-width: 18rem) calc(100vw - 6rem - 2px), calc(12rem - 2px)"
+      loading="eager"
+      class="w-full h-full object-contain"
+    />
   </div>
 
   <h1 data-aos="fade-in" data-aos-duration="800" data-aos-delay="100" class="font-jetbrains text-title text-4xl font-bold mb-2">{title}</h1>

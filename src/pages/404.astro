@@ -4,7 +4,11 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<Layout title="404 - Página no encontrada">
+<Layout
+  title="404 - Página no encontrada"
+  description="La página que buscás no existe o fue movida. Volvé al inicio del portfolio."
+  noindex
+>
   <div class="flex flex-col min-h-screen">
     <header>
       <Navbar />
