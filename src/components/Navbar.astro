@@ -6,31 +6,31 @@ const logo = await getImage({ src: logoSrc, height: 64 });
 ---
 
 <style>
-  /* nav */
-  .menu-mobile {
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  .icon-close,
+  details[open] .icon-burger {
+    display: none;
   }
 
-  .menu-mobile.hidden {
-    opacity: 0;
-    transform: translateY(-12px);
-    pointer-events: none;
+  details[open] .icon-close {
+    display: block;
   }
 
-  .menu-mobile.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  @media (prefers-reduced-motion: no-preference) {
+    details[open] .menu-item {
+      animation: menu-enter 0.2s ease-out backwards;
+    }
 
-  .menu-item {
-    opacity: 0;
-    transform: translateY(-8px);
-    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-  }
+    .menu-item:nth-child(2) { animation-delay: 50ms; }
+    .menu-item:nth-child(3) { animation-delay: 100ms; }
+    .menu-item:nth-child(4) { animation-delay: 150ms; }
+    .menu-item:nth-child(5) { animation-delay: 200ms; }
 
-  .menu-item.show {
-    opacity: 1;
-    transform: translateY(0);
+    @keyframes menu-enter {
+      from {
+        opacity: 0.65;
+        transform: translateY(-4px);
+      }
+    }
   }
 </style>
 
@@ -54,7 +54,7 @@ const logo = await getImage({ src: logoSrc, height: 64 });
             alt=""
             aria-hidden="true"
             class="absolute top-0 left-0.5 h-8 w-auto opacity-0
-                  group-hover:opacity-100 group-hover:animate-glitch-1
+                  motion-safe:group-hover:opacity-100 motion-safe:group-hover:animate-glitch-1
                   drop-shadow-[-1px_0_#d1d5db] brightness-125 z-0"
           />
 
@@ -63,7 +63,7 @@ const logo = await getImage({ src: logoSrc, height: 64 });
             alt=""
             aria-hidden="true"
             class="absolute top-0 -left-0.5 h-8 w-auto opacity-0
-                  group-hover:opacity-100 group-hover:animate-glitch-2
+                  motion-safe:group-hover:opacity-100 motion-safe:group-hover:animate-glitch-2
                   drop-shadow-[1px_0_#4b5563] contrast-150 z-0"
           />
         </a>
@@ -97,57 +97,28 @@ const logo = await getImage({ src: logoSrc, height: 64 });
           </div>
         </div>
 
-        <!-- Botón hamburguesa -->
-        <div data-aos="fade-in" data-aos-duration="400" data-aos-delay="100" class="flex sm:hidden inset-y-0 right-0 items-center">
-          <button 
-            id="menu-toggle"
-            type="button" 
-            class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-300 hover:text-white cursor-pointer"
-            aria-label="Toggle menu"
-          >
-            <!-- Ícono hamburguesa -->
-            <svg 
-              id="icon-burger"
-              xmlns="http://www.w3.org/2000/svg" 
-              viewBox="0 0 24 24" 
-              fill="currentColor" 
-              class="size-8 transition-all duration-200 ease-out opacity-100 rotate-0"
-            >
-              <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
-            </svg>
-
-            <!-- Ícono X -->
-            <svg 
-              id="icon-close"
-              xmlns="http://www.w3.org/2000/svg" 
-              viewBox="0 0 24 24" 
-              fill="currentColor" 
-              class="size-8 absolute transition-all duration-200 ease-out opacity-0 rotate-90"
-            >
-              <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-            </svg>
-          </button>
-        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Mobile menu -->
-  <div 
-    id="mobile-menu"
-    class="sm:hidden absolute left-4 right-4 top-full mt-2 bg-surface border border-border backdrop-blur-md z-50 rounded-lg overflow-hidden menu-mobile hidden"
-  >
-    <div class="space-y-1 px-2 py-3">
-      <a rel="noopener noreferrer" aria-label="Sección sobre Guillermo Bouix" href="/#about" class="menu-item block rounded-md px-3 py-2 text-base font-jetbrains font-medium text-gray-300 hover:text-white hover:bg-interactive transition-colors">Sobre Mí</a>
-      
-      <a rel="noopener noreferrer" aria-label="Sección de proyectos" href="/#projects" class="menu-item block rounded-md px-3 py-2 text-base font-jetbrains font-medium text-gray-300 hover:text-white hover:bg-interactive transition-colors">Proyectos</a>
-      
-      <a rel="noopener noreferrer" aria-label="Sección de formación académica" href="/#education" class="menu-item block rounded-md px-3 py-2 text-base font-jetbrains font-medium text-gray-300 hover:text-white hover:bg-interactive transition-colors">Formación</a>
-      
-      <a rel="noopener noreferrer" aria-label="Sección de habilidades y conocimientos" href="/#skills" class="menu-item block rounded-md px-3 py-2 text-base font-jetbrains font-medium text-gray-300 hover:text-white hover:bg-interactive transition-colors">Habilidades</a>
-      
-      <a rel="noopener noreferrer" aria-label="Sección de contacto" href="/#contact" class="menu-item block rounded-md px-3 py-2 text-base font-jetbrains font-medium text-gray-300 hover:text-white hover:bg-interactive transition-colors">Contacto</a>
-    </div>
+    <details id="mobile-navigation" class="sm:hidden">
+      <summary class="absolute right-4 top-2 inline-flex list-none cursor-pointer items-center justify-center p-2 text-gray-300 hover:text-white [&::-webkit-details-marker]:hidden">
+        <span class="sr-only">Menú de navegación</span>
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-burger size-8">
+          <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+        </svg>
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-close size-8">
+          <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+        </svg>
+      </summary>
+
+      <div class="mt-2 space-y-1 border border-border bg-surface px-2 py-3">
+        <a rel="noopener noreferrer" aria-label="Sección sobre Guillermo Bouix" href="/#about" class="menu-item block rounded-md px-3 py-2 text-base font-jetbrains font-medium text-gray-300 hover:text-white hover:bg-interactive transition-colors">Sobre Mí</a>
+        <a rel="noopener noreferrer" aria-label="Sección de proyectos" href="/#projects" class="menu-item block rounded-md px-3 py-2 text-base font-jetbrains font-medium text-gray-300 hover:text-white hover:bg-interactive transition-colors">Proyectos</a>
+        <a rel="noopener noreferrer" aria-label="Sección de formación académica" href="/#education" class="menu-item block rounded-md px-3 py-2 text-base font-jetbrains font-medium text-gray-300 hover:text-white hover:bg-interactive transition-colors">Formación</a>
+        <a rel="noopener noreferrer" aria-label="Sección de habilidades y conocimientos" href="/#skills" class="menu-item block rounded-md px-3 py-2 text-base font-jetbrains font-medium text-gray-300 hover:text-white hover:bg-interactive transition-colors">Habilidades</a>
+        <a rel="noopener noreferrer" aria-label="Sección de contacto" href="/#contact" class="menu-item block rounded-md px-3 py-2 text-base font-jetbrains font-medium text-gray-300 hover:text-white hover:bg-interactive transition-colors">Contacto</a>
+      </div>
+    </details>
   </div>
 </nav>
 

@@ -1,4 +1,16 @@
 @import "tailwindcss";
+@import "aos/dist/aos.css" layer(aos) (prefers-reduced-motion: no-preference);
+
+@media (prefers-reduced-motion: no-preference) {
+  :root:not(.aos-ready) [data-aos],
+  [data-aos]:not(.aos-init),
+  [data-aos]:focus-within {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    pointer-events: auto;
+  }
+}
 
 /* Square corners across the site, including Tailwind's rounded utilities. */
 *,
