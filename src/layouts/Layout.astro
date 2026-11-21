@@ -9,11 +9,12 @@ const {
   description = 'Desarrollador y analista programador enfocado en software a medida, modernización de procesos y acompañamiento evolutivo para negocios que necesitan soluciones claras y funcionales.'
 } = Astro.props;
 
-const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
+const gtmId = import.meta.env.PUBLIC_GTM_ID?.trim();
+const analyticsId = gtmId && /^GTM-[A-Z0-9]+$/.test(gtmId) ? gtmId : undefined;
 ---
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-analytics-id={analyticsId}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,33 +54,9 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 			})();
 		</script>
 
-		<!-- Google Tag Manager -->
-		<script is:inline define:vars={{ GTM_ID }}>
-			(function(w,d,s,l,i){
-				w[l]=w[l]||[];
-				w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-				var f=d.getElementsByTagName(s)[0],
-				j=d.createElement(s),
-				dl=l!='dataLayer'?'&l='+l:'';
-				j.async=true;
-				j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-				f.parentNode.insertBefore(j,f);
-			})(window,document,'script','dataLayer',GTM_ID);
-		</script>
-
 	</head>
-	
-	<body class="font-inter min-h-screen m-0 p-0">
-    	<!-- Google Tag Manager (noscript) -->
-		<noscript>
-			<iframe
-				src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-				height="0"
-				width="0"
-				style="display:none;visibility:hidden">
-			</iframe>
-		</noscript>
 
+	<body class="font-inter min-h-screen m-0 p-0">
 		<slot />
 		<!-- Modal de Certificados -->
 		<div id="certificateModal" aria-labelledby="certificateTitle" class="hidden fixed inset-0 bg-black/90 z-50 items-center justify-center p-8">
@@ -101,7 +78,10 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 		<script>
 			import '../scripts/aos.ts';
 			import '../scripts/certificate-modal.ts';
-			import '../scripts/whatsapp-leads.ts';
+		</script>
+
+		<script>
+			import '../scripts/analytics-consent.ts';
 		</script>
 
 		<!-- JSON-LD -->

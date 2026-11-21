@@ -61,8 +61,6 @@
         whatsappLink.addEventListener('click', (event) => {
             if (!messageInput.value.trim()) {
                 event.preventDefault();
-                // An invalid attempt must not trigger the existing lead-click tracker.
-                event.stopImmediatePropagation();
                 messageInput.setCustomValidity('Escribí un mensaje para abrir WhatsApp.');
                 messageInput.reportValidity();
                 return;
@@ -70,6 +68,6 @@
 
             messageInput.setCustomValidity('');
             updateWhatsAppLink();
-        }, { capture: true });
+        });
     }
 </script>

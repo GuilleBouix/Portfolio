@@ -20,7 +20,7 @@ import Footer from '../components/Footer.astro';
         </h1>
         
         <p class="text-white/50 text-sm font-medium mt-2">
-            Última actualización: <time datetime="2026-04">Abril 2026</time>
+            Última actualización: <time datetime="2026-11">Noviembre 2026</time>
         </p>
         
         <p class="mt-4 text-white/75 font-regular">
@@ -44,7 +44,7 @@ import Footer from '../components/Footer.astro';
         </h3>
 
         <p class="mt-4 text-white/75">
-            Cuando utilizás el formulario de contacto en este sitio web, recopilo la siguiente información. Tu dirección de correo electrónico es requerida para poder responderte. Tu nombre es opcional y me ayuda a personalizar la comunicación. El campo de mensaje es obligatorio ya que contiene el contenido de tu consulta o solicitud.
+            Cuando utilizás el formulario de contacto en este sitio web, recopilo la siguiente información. Tu dirección de correo electrónico es requerida para poder responderte. Tu nombre es opcional y me ayuda a personalizar la comunicación. El campo de mensaje es obligatorio ya que contiene tu consulta o solicitud. Si elegís «Enviar por correo», Formspree recibe esos campos para hacerme llegar el mensaje.
         </p>
 
         <aside class="mt-4 p-4 rounded border border-border bg-surface">
@@ -63,45 +63,38 @@ import Footer from '../components/Footer.astro';
         </aside>
 
         <h3 class="font-jetbrains text-title font-semibold text-lg mt-6">
-            2.2 Google Analytics
+            2.2 Medición de visitas
         </h3>
 
         <p class="mt-4 text-white/75">
-            Este sitio utiliza Google Analytics, un servicio de análisis web proporcionado por Google LLC. Google Analytics usa cookies y tecnologías similares para recopilar información sobre cómo los visitantes usan el sitio web. Esta recopilación de datos ocurre automáticamente cuando navegás por el sitio e incluye información como tu dirección IP anonimizada, el tipo de navegador y dispositivo que estás usando, tu sistema operativo, qué páginas visitás y cuánto tiempo permanecés en ellas, tu ubicación geográfica aproximada a nivel de ciudad, y la fuente que te référ a este sitio.
+            La medición de visitas está desactivada por defecto. Si está disponible y la habilitás, el sitio carga Google Tag Manager para usar Google Analytics y entender cómo se usa el portfolio. Google Analytics puede recibir información sobre las páginas visitadas, el dispositivo, el navegador y el origen de la visita.
+        </p>
+        <p class="mt-2 text-white/75">
+            Podés cambiar tu elección desde esta página. Consultá la <a rel="noopener noreferrer" href="https://policies.google.com/privacy" target="_blank" class="underline">Política de Privacidad de Google</a> para saber cómo trata estos datos.
         </p>
 
-        <aside class="mt-4 p-4 rounded border border-border bg-surface">
-            <p class="text-white/75 font-medium">
-                Datos recopilados automáticamente: Dirección IP (anonimizada), Tipo de navegador y dispositivo, Sistema operativo, Páginas visitadas y tiempo de permanencia, Ubicación geográfica aproximada (nivel de ciudad), Fuente de referencia (cómo llegaste al sitio)
-            </p>
-            <p class="text-white/75 mt-2">
-                Finalidad: Analizar el tráfico del sitio, entender cómo los visitantes interactúan con el contenido y mejorar la experiencia del usuario.
-            </p>
-            <p class="text-white/75 mt-2">
-                Base legal: Interés legítimo en mejorar el sitio y tu consentimiento a través del banner de cookies.
-            </p>
-            <p class="text-white/75 mt-2">
-                Transferencia internacional: Google Analytics puede transferir datos a servidores ubicados en Estados Unidos. Google cumple con los marcos de transferencia de datos aplicables.
-            </p>
-            <p class="text-white/75 mt-2">
-                Más información: Podés consultar la <a rel="noopener noreferrer" href="https://policies.google.com/privacy" target="_blank" class="text-white/75 hover:underline">Política de Privacidad de Google</a> y <a rel="noopener noreferrer" href="https://tools.google.com/dlpage/gaoptout" target="_blank" class="text-white/75 hover:underline">desactivar Google Analytics</a>.
-            </p>
-        </aside>
+        <div id="analytics-preferences" hidden class="mt-4 border border-border bg-surface-low p-4">
+            <label class="flex items-center gap-3 text-white">
+                <input id="analytics-consent" type="checkbox" class="size-5 accent-white" aria-describedby="analytics-status" />
+                Permitir la medición de visitas
+            </label>
+            <p id="analytics-status" role="status" class="mt-2 text-sm text-white/75"></p>
+        </div>
 
         <h3 class="font-jetbrains text-title font-semibold text-lg mt-6">
-            2.3 Funcionalidades que NO Recopilan Datos
+            2.3 Contacto por WhatsApp
         </h3>
 
         <p class="mt-4 text-white/75">
-            El sitio incluye varias funcionalidades que no recopilan ni almacenan ninguna información personal. El botón de WhatsApp te redirige directamente a wa.me para iniciar una conversación. No se recopila ningún dato por mi parte, y la comunicación está sujeta a las propias políticas de WhatsApp. Los enlaces a redes sociales de Instagram, LinkedIn y GitHub son simples enlaces externos. No se recopila ninguna información cuando hacés clic en ellos. El botón de copiar email utiliza JavaScript local en tu navegador para copiar mi dirección de correo electrónico a tu portapapeles. No se envía ningún dato a ningún servidor.
+            Al elegir WhatsApp, abrís una conversación en ese servicio. Si usás el formulario, WhatsApp recibe el mensaje y el nombre opcional para prellenar el chat. Vos decidís si enviás el mensaje desde WhatsApp. El correo electrónico se usa para el envío por Formspree. El portfolio dejó de registrar por su cuenta los clics en WhatsApp y de reenviarlos a Google Sheets.
         </p>
 
         <h2 class="font-jetbrains text-title font-bold text-xl mt-8">
-            3. Cookies
+            3. Cookies y preferencias
         </h2>
 
         <p class="mt-4 text-white/75">
-            Este sitio utiliza cookies, que son pequeños archivos de texto almacenados en tu dispositivo que ayudan a mejorar tu experiencia de navegación. Las cookies técnicas son necesarias para el funcionamiento básico del sitio. Las cookies de Google Analytics son cookies de terceros utilizadas para análisis estadístico como se explicó anteriormente. Podés configurar tu navegador para rechazar cookies, aunque esto puede afectar algunas funcionalidades del sitio. La mayoría de los navegadores aceptan cookies automáticamente, pero podés cambiar esta configuración en cualquier momento.
+            El sitio guarda tu preferencia de medición en el almacenamiento local de tu navegador. Si activás la medición, Google Analytics puede usar cookies para analizar el tráfico. Podés desactivar la medición acá y borrar las cookies ya creadas desde la configuración de tu navegador.
         </p>
 
         <h2 class="font-jetbrains text-title font-bold text-xl mt-8">
