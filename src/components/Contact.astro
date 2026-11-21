@@ -5,24 +5,23 @@
         </h2>
 
         <form action="https://formspree.io/f/mrbnjrkw" method="POST" class="w-full flex flex-col gap-4 mt-2">
-            <div data-aos="zoom-in" data-aos-duration="800" class="flex flex-col">
-                <label for="email" class="sr-only">Correo Electrónico</label>
-                
-                <input type="email" autocomplete="email" name="email" id="email" placeholder="Tu email (para correo)" required
-                class="font-jetbrains bg-surface-low outline-none border border-border rounded text-sm text-white px-4 py-3 focus:border-white transition" />
+            <div data-aos="zoom-in" data-aos-duration="800" class="flex flex-col gap-1">
+                <label for="email" class="text-sm font-medium text-white">Correo electrónico</label>
+                <p id="email-help" class="text-sm text-white/75">Obligatorio para enviar por correo.</p>
+                <input type="email" autocomplete="email" name="email" id="email" aria-describedby="email-help" required
+                class="font-jetbrains bg-surface-low border border-paragraph rounded text-sm text-white px-4 py-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" />
             </div>
 
-            <div data-aos="zoom-in" data-aos-duration="800" class="flex flex-col">
-                <label for="name" class="sr-only">Nombre</label>
-                
-                <input type="text" name="name" id="name" placeholder="Tu nombre (opcional)"
-                class="font-jetbrains bg-surface-low outline-none border border-border rounded text-sm text-white px-4 py-3 focus:border-white transition" />
+            <div data-aos="zoom-in" data-aos-duration="800" class="flex flex-col gap-1">
+                <label for="name" class="text-sm font-medium text-white">Nombre <span class="font-normal text-white/75">(opcional)</span></label>
+                <input type="text" autocomplete="name" name="name" id="name"
+                class="font-jetbrains bg-surface-low border border-paragraph rounded text-sm text-white px-4 py-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" />
             </div>
 
-            <div data-aos="zoom-in" data-aos-duration="800" class="flex flex-col">
-                <label for="message" class="sr-only">Mensaje</label>
-                
-                <textarea name="message" id="message" placeholder="Escribe tu mensaje..." required class="font-jetbrains bg-surface-low outline-none border border-border rounded text-sm text-white px-4 py-3 resize-none h-30 focus:border-white transition"></textarea>
+            <div data-aos="zoom-in" data-aos-duration="800" class="flex flex-col gap-1">
+                <label for="message" class="text-sm font-medium text-white">Mensaje <span aria-hidden="true" class="font-normal text-white/75">(obligatorio)</span></label>
+                <textarea name="message" id="message" required class="font-jetbrains bg-surface-low border border-paragraph rounded text-sm text-white px-4 py-3 resize-y min-h-30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white aria-invalid:border-red-300"></textarea>
+                <p id="whatsapp-message-error" hidden class="text-sm text-red-300">Escribí un mensaje para continuar.</p>
             </div>
 
             <div data-aos="zoom-in" data-aos-duration="800" class="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -43,8 +42,9 @@
     const whatsappLink = document.querySelector<HTMLAnchorElement>('#contact-whatsapp');
     const messageInput = document.querySelector<HTMLTextAreaElement>('#contact #message');
     const nameInput = document.querySelector<HTMLInputElement>('#contact #name');
+    const messageError = document.getElementById('whatsapp-message-error');
 
-    if (whatsappLink && messageInput) {
+    if (whatsappLink && messageInput && messageError) {
         const updateWhatsAppLink = () => {
             const name = nameInput?.value.trim();
             const message = messageInput.value.trim();
@@ -53,7 +53,12 @@
         };
 
         messageInput.addEventListener('input', () => {
-            messageInput.setCustomValidity('');
+            if (messageInput.value.trim()) {
+                messageInput.setCustomValidity('');
+                messageInput.removeAttribute('aria-invalid');
+                messageInput.removeAttribute('aria-describedby');
+                messageError.hidden = true;
+            }
             updateWhatsAppLink();
         });
         nameInput?.addEventListener('input', updateWhatsAppLink);
@@ -61,12 +66,14 @@
         whatsappLink.addEventListener('click', (event) => {
             if (!messageInput.value.trim()) {
                 event.preventDefault();
-                messageInput.setCustomValidity('Escribí un mensaje para abrir WhatsApp.');
-                messageInput.reportValidity();
+                messageError.hidden = false;
+                messageInput.setCustomValidity(messageError.textContent?.trim() ?? '');
+                messageInput.setAttribute('aria-invalid', 'true');
+                messageInput.setAttribute('aria-describedby', messageError.id);
+                messageInput.focus();
                 return;
             }
 
-            messageInput.setCustomValidity('');
             updateWhatsAppLink();
         });
     }

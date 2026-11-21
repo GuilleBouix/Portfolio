@@ -86,8 +86,10 @@ const {
   </div>
 
   <!-- Gallery -->
-  <h4 data-aos="fade-in" data-aos-duration="800" class="font-jetbrains text-title text-xl font-semibold mb-4">Galería de Imágenes</h4>
-  <div data-aos="fade-in" data-aos-duration="800" data-aos-delay="100" class="mb-10">
-    <slot name="gallery" />
-  </div>
+  <section aria-labelledby="project-gallery-title" aria-roledescription="carrusel">
+    <h3 id="project-gallery-title" data-aos="fade-in" data-aos-duration="800" class="font-jetbrains text-title text-xl font-semibold mb-4">Galería de Imágenes</h3>
+    <div data-aos="fade-in" data-aos-duration="800" data-aos-delay="100" class="mb-10">
+      <slot name="gallery" />
+    </div>
+  </section>
 </section>

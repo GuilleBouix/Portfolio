@@ -24,40 +24,46 @@ const imagesJson = JSON.stringify(resolvedImages);
     />
     
     <!-- Botón anterior -->
-    <button 
+    <button
+      type="button"
+      hidden
       id="prev-btn"
-      class="absolute left-2 top-1/2 -translate-y-1/2 bg-interactive hover:bg-interactive/80 text-white p-2 rounded transition-all disabled:opacity-30 disabled:cursor-not-allowed md:left-4 cursor-pointer"
+      class="absolute left-2 top-1/2 -translate-y-1/2 bg-interactive hover:bg-interactive/80 text-white p-2 rounded transition-all aria-disabled:text-white/50 aria-disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white focus-visible:ring-2 focus-visible:ring-black md:left-4 cursor-pointer"
       aria-label="Imagen anterior"
     >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M15 19l-7-7 7-7"></path>
       </svg>
     </button>
     
     <!-- Botón siguiente -->
-    <button 
+    <button
+      type="button"
+      hidden
       id="next-btn"
-      class="absolute right-2 top-1/2 -translate-y-1/2 bg-interactive hover:bg-interactive/80 text-white p-2 rounded transition-all disabled:opacity-30 disabled:cursor-not-allowed md:right-4 cursor-pointer"
+      class="absolute right-2 top-1/2 -translate-y-1/2 bg-interactive hover:bg-interactive/80 text-white p-2 rounded transition-all aria-disabled:text-white/50 aria-disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white focus-visible:ring-2 focus-visible:ring-black md:right-4 cursor-pointer"
       aria-label="Imagen siguiente"
     >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M9 5l7 7-7 7"></path>
       </svg>
     </button>
   </div>
   
   <!-- Contador de imágenes -->
-  <div class="text-center text-sm mt-4 font-jetbrains text-white/50">
+  <div aria-hidden="true" class="text-center text-sm mt-4 font-jetbrains text-white/50">
     <span id="current-index">1</span> / <span id="total-images">{images.length}</span>
   </div>
+  <p id="gallery-status" role="status" aria-atomic="true" class="sr-only">
+    Imagen 1 de {images.length}. {resolvedImages[0].alt}
+  </p>
 </div>
 
 <script>
   import { initGallery } from '../../scripts/gallery';
   
-  const container = document.querySelector('[data-gallery-images]');
-  const imagesData = container?.getAttribute('data-gallery-images');
-  const images = imagesData ? JSON.parse(imagesData) : [];
-  
-  initGallery(images);
+  const container = document.querySelector<HTMLElement>('[data-gallery-images]');
+  if (container?.dataset.galleryImages) {
+    initGallery(container, JSON.parse(container.dataset.galleryImages));
+  }
 </script>

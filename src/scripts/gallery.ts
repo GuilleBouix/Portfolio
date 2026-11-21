@@ -1,63 +1,63 @@
-// Gallery Navigation
 interface GalleryImage {
   src: string;
   alt: string;
 }
 
-export function initGallery(images: GalleryImage[]): void {
+export function initGallery(container: HTMLElement, images: GalleryImage[]): void {
+  const wrapper = container.querySelector<HTMLElement>('#gallery-wrapper');
+  const image = container.querySelector<HTMLImageElement>('#gallery-image');
+  const previous = container.querySelector<HTMLButtonElement>('#prev-btn');
+  const next = container.querySelector<HTMLButtonElement>('#next-btn');
+  const counter = container.querySelector<HTMLElement>('#current-index');
+  const status = container.querySelector<HTMLElement>('#gallery-status');
+
+  if (!wrapper || !image || !previous || !next || !counter || !status || images.length === 0) return;
+
   let currentIndex = 0;
 
-  const galleryWrapper = document.getElementById('gallery-wrapper') as HTMLElement | null;
-  const galleryImage = document.getElementById('gallery-image') as HTMLImageElement | null;
-  const prevBtn = document.getElementById('prev-btn') as HTMLButtonElement | null;
-  const nextBtn = document.getElementById('next-btn') as HTMLButtonElement | null;
-  const currentIndexSpan = document.getElementById('current-index');
-
-  if (!galleryWrapper || !galleryImage || !prevBtn || !nextBtn || !currentIndexSpan) return;
-
-  function applyAspectRatio(): void {
-    if (!galleryImage!.naturalWidth || !galleryImage!.naturalHeight) return;
-    galleryWrapper!.style.aspectRatio = `${galleryImage!.naturalWidth} / ${galleryImage!.naturalHeight}`;
-  }
-
-  function updateGallery(): void {
-    galleryImage.src = images[currentIndex].src;
-    galleryImage.alt = images[currentIndex].alt;
-    currentIndexSpan.textContent = String(currentIndex + 1);
-
-    prevBtn.disabled = currentIndex === 0;
-    nextBtn.disabled = currentIndex === images.length - 1;
-
-    if (galleryImage.complete) {
-      applyAspectRatio();
-    } else {
-      galleryImage.addEventListener('load', applyAspectRatio, { once: true });
+  const applyAspectRatio = () => {
+    if (image.naturalWidth && image.naturalHeight) {
+      wrapper.style.aspectRatio = `${image.naturalWidth} / ${image.naturalHeight}`;
     }
-  }
+  };
 
-  prevBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateGallery();
-    }
+  const updateControls = () => {
+    previous.setAttribute('aria-disabled', String(currentIndex === 0));
+    next.setAttribute('aria-disabled', String(currentIndex === images.length - 1));
+  };
+
+  const move = (offset: number) => {
+    const index = currentIndex + offset;
+    if (index < 0 || index >= images.length) return;
+
+    currentIndex = index;
+    const { src, alt } = images[currentIndex];
+    image.src = src;
+    image.alt = alt;
+    counter.textContent = String(currentIndex + 1);
+    status.textContent = `Imagen ${currentIndex + 1} de ${images.length}. ${alt}`;
+    updateControls();
+
+    if (image.complete) applyAspectRatio();
+  };
+
+  image.addEventListener('load', applyAspectRatio);
+  if (image.complete) applyAspectRatio();
+
+  if (images.length === 1) return;
+
+  updateControls();
+  previous.hidden = false;
+  next.hidden = false;
+
+  previous.addEventListener('click', () => move(-1));
+  next.addEventListener('click', () => move(1));
+
+  container.addEventListener('keydown', (event) => {
+    if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+
+    event.preventDefault();
+    move(event.key === 'ArrowLeft' ? -1 : 1);
   });
-
-  nextBtn.addEventListener('click', () => {
-    if (currentIndex < images.length - 1) {
-      currentIndex++;
-      updateGallery();
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft' && currentIndex > 0) {
-      currentIndex--;
-      updateGallery();
-    } else if (e.key === 'ArrowRight' && currentIndex < images.length - 1) {
-      currentIndex++;
-      updateGallery();
-    }
-  });
-
-  updateGallery();
 }
